@@ -6,7 +6,7 @@ interface FormData {
   major: string;
   focusArea: string;
   entryYear: string;
-  apCredits: string;
+  apCredits: string[];
   additionalDetails: string;
 }
 
@@ -14,6 +14,7 @@ interface FormErrors {
   major?: string;
   focusArea?: string;
   entryYear?: string;
+  apCredits?: string;
 }
 
 export default function Home() {
@@ -21,11 +22,12 @@ export default function Home() {
     major: '',
     focusArea: '',
     entryYear: '',
-    apCredits: '',
+    apCredits: [],
     additionalDetails: ''
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
 
@@ -71,12 +73,12 @@ export default function Home() {
     'Multiple AP courses (please specify in details)'
   ];
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
+  const handleInputChange = (field: keyof FormData, value: string | string[]) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
-
+  
     // Clear error when user starts typing
     if (errors[field as keyof FormErrors]) {
       setErrors(prev => ({
@@ -84,7 +86,7 @@ export default function Home() {
         [field]: undefined
       }));
     }
-
+  
     // Reset focus area when major changes
     if (field === 'major') {
       setFormData(prev => ({
@@ -93,6 +95,7 @@ export default function Home() {
       }));
     }
   };
+  
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -226,22 +229,64 @@ export default function Home() {
           </div>
 
           {/* AP/IB Credits */}
-          <div className='text-gray-700'>
-            <label htmlFor="apCredits" className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="text-gray-700 relative">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Advanced Placement (AP/IB) Credits
             </label>
-            <select
-              id="apCredits"
-              value={formData.apCredits}
-              onChange={(e) => handleInputChange('apCredits', e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+
+            {/* Dropdown button (styled like select) */}
+            <button
+              type="button"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className={`w-full flex justify-between items-center p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                errors.apCredits ? "border-red-500" : "border-gray-300"
+              }`}
             >
-              <option value="">Select AP/IB credits (optional)</option>
-              {apCreditsOptions.slice(1).map(credit => (
-                <option key={credit} value={credit}>{credit}</option>
-              ))}
-            </select>
+              <span className={formData.apCredits.length === 0 ? "text-gray-400" : ""}>
+                {formData.apCredits.length > 0
+                  ? formData.apCredits.join(", ")
+                  : "Select AP/IB credits (optional)"}
+              </span>
+              <svg
+                className="w-4 h-4 ml-2 text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* Dropdown panel */}
+            {dropdownOpen && (
+              <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto p-2">
+                {apCreditsOptions.slice(1).map(credit => (
+                  <label key={credit} className="flex items-center space-x-2 p-1 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      value={credit}
+                      checked={formData.apCredits.includes(credit)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          handleInputChange("apCredits", [...formData.apCredits, credit]);
+                        } else {
+                          handleInputChange(
+                            "apCredits",
+                            formData.apCredits.filter(c => c !== credit)
+                          );
+                        }
+                      }}
+                      className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    />
+                    <span className="text-sm text-gray-700">{credit}</span>
+                  </label>
+                ))}
+              </div>
+            )}
+
+            {errors.apCredits && <p className="mt-1 text-sm text-red-600">{errors.apCredits}</p>}
           </div>
+
 
           {/* Additional Details */}
           <div className='text-gray-700'>
