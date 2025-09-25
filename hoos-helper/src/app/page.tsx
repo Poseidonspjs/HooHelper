@@ -2,6 +2,123 @@
 
 import { useState } from 'react';
 
+type DropdownProps = {
+  label: string;
+  value: string | string[];
+  onChange: (value: string | string[]) => void;
+  options: string[];
+  multiple?: boolean;
+  placeholder?: string;
+  error?: string;
+  disabled?: boolean;
+};
+
+function Dropdown({
+  label,
+  value,
+  onChange,
+  options,
+  multiple = false,
+  placeholder = "Select an option",
+  error,
+}: DropdownProps) {
+  const [open, setOpen] = useState(false);
+
+  const isMulti = Array.isArray(value);
+
+  return (
+    <div className="text-gray-700 relative">
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        {label}
+      </label>
+
+      {/* Dropdown button (shared style) */}
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className={`w-full text-left flex justify-between items-center p-3 border rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+          error ? "border-red-500" : "border-gray-300"
+        }`}
+      >
+        <span
+          className={`truncate ${
+            (isMulti && (value as string[]).length === 0) ||
+            (!isMulti && !value)
+              ? "text-gray-400"
+              : "text-gray-900"
+          }`}
+        >
+          {isMulti
+            ? (value as string[]).length > 0
+              ? (value as string[]).join(", ")
+              : placeholder
+            : value || placeholder}
+        </span>
+        <svg
+          className="w-4 h-4 ml-2 text-gray-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+
+      {/* Dropdown panel */}
+      {open && (
+        <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto p-2">
+          {options.map((opt) => (
+            <label
+              key={opt}
+              className={`flex items-center space-x-2 p-1 cursor-pointer ${
+                multiple ? "hover:bg-gray-100 rounded" : ""
+              }`}
+            >
+              {multiple ? (
+                <input
+                  type="checkbox"
+                  value={opt}
+                  checked={(value as string[]).includes(opt)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      onChange([...(value as string[]), opt]);
+                    } else {
+                      onChange(
+                        (value as string[]).filter((v) => v !== opt)
+                      );
+                    }
+                  }}
+                  className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                />
+              ) : (
+                <input
+                  type="radio"
+                  name={label}
+                  value={opt}
+                  checked={value === opt}
+                  onChange={() => {
+                    onChange(opt);
+                    setOpen(false); // close after selecting
+                  }}
+                  className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                />
+              )}
+              <span className="text-sm text-gray-700">{opt}</span>
+            </label>
+          ))}
+        </div>
+      )}
+
+      {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+    </div>
+  );
+}
+
 interface FormData {
   major: string;
   focusArea: string;
@@ -163,129 +280,46 @@ export default function Home() {
 
         <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
           {/* Major Selection */}
-          <div className='text-gray-700'>
-            <label htmlFor="major" className="block text-sm font-medium text-gray-700 mb-2">
-              Intended Major *
-            </label>
-            <select
-              id="major"
-              value={formData.major}
-              onChange={(e) => handleInputChange('major', e.target.value)}
-              className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                errors.major ? 'border-red-500' : 'border-gray-300'
-              }`}
-            >
-              <option value="">Select your major</option>
-              {majors.map(major => (
-                <option key={major} value={major}>{major}</option>
-              ))}
-            </select>
-            {errors.major && <p className="mt-1 text-sm text-red-600">{errors.major}</p>}
-          </div>
+          <Dropdown
+            label="Intended Major *"
+            value={formData.major}
+            onChange={(val) => handleInputChange("major", val as string)}
+            options={majors}
+            placeholder="Select your major"
+            error={errors.major}
+          />
 
           {/* Focus Area Selection */}
-          <div className='text-gray-700'>
-            <label htmlFor="focusArea" className="block text-sm font-medium text-gray-700 mb-2">
-              Focus Area / Concentration *
-            </label>
-            <select
-              id="focusArea"
+            <Dropdown
+              label="Focus Area *"
               value={formData.focusArea}
-              onChange={(e) => handleInputChange('focusArea', e.target.value)}
+              onChange={(value) => handleInputChange("focusArea", value)}
+              placeholder={formData.major ? "Select your focus area" : "Please select a major first"}
+              options={formData.major ? focusAreas[formData.major] || [] : []}
               disabled={!formData.major}
-              className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 ${
-                errors.focusArea ? 'border-red-500' : 'border-gray-300'
-              }`}
-            >
-              <option value="">
-                {formData.major ? 'Select your focus area' : 'Please select a major first'}
-              </option>
-              {formData.major && focusAreas[formData.major]?.map(area => (
-                <option key={area} value={area}>{area}</option>
-              ))}
-            </select>
-            {errors.focusArea && <p className="mt-1 text-sm text-red-600">{errors.focusArea}</p>}
-          </div>
+              error={errors.focusArea}
+            />
 
           {/* Entry Year Selection */}
-          <div className='text-gray-700'>
-            <label htmlFor="entryYear" className="block text-sm font-medium text-gray-700 mb-2">
-              Entry Year *
-            </label>
-            <select
-              id="entryYear"
-              value={formData.entryYear}
-              onChange={(e) => handleInputChange('entryYear', e.target.value)}
-              className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                errors.entryYear ? 'border-red-500' : 'border-gray-300'
-              }`}
-            >
-              <option value="">Select your entry year</option>
-              {entryYears.map(year => (
-                <option key={year} value={year}>{year}</option>
-              ))}
-            </select>
-            {errors.entryYear && <p className="mt-1 text-sm text-red-600">{errors.entryYear}</p>}
-          </div>
+          <Dropdown
+            label="Entry Year *"
+            value={formData.entryYear}
+            onChange={(val) => handleInputChange("entryYear", val as string)}
+            options={entryYears}
+            placeholder="Select your entry year"
+            error={errors.entryYear}
+          />
 
           {/* AP/IB Credits */}
-          <div className="text-gray-700 relative">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Advanced Placement (AP/IB) Credits
-            </label>
-
-            {/* Dropdown button (styled like select) */}
-            <button
-              type="button"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className={`w-full flex justify-between items-center p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                errors.apCredits ? "border-red-500" : "border-gray-300"
-              }`}
-            >
-              <span className={formData.apCredits.length === 0 ? "text-gray-400" : ""}>
-                {formData.apCredits.length > 0
-                  ? formData.apCredits.join(", ")
-                  : "Select AP/IB credits (optional)"}
-              </span>
-              <svg
-                className="w-4 h-4 ml-2 text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            {/* Dropdown panel */}
-            {dropdownOpen && (
-              <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto p-2">
-                {apCreditsOptions.slice(1).map(credit => (
-                  <label key={credit} className="flex items-center space-x-2 p-1 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      value={credit}
-                      checked={formData.apCredits.includes(credit)}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          handleInputChange("apCredits", [...formData.apCredits, credit]);
-                        } else {
-                          handleInputChange(
-                            "apCredits",
-                            formData.apCredits.filter(c => c !== credit)
-                          );
-                        }
-                      }}
-                      className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                    />
-                    <span className="text-sm text-gray-700">{credit}</span>
-                  </label>
-                ))}
-              </div>
-            )}
-
-            {errors.apCredits && <p className="mt-1 text-sm text-red-600">{errors.apCredits}</p>}
-          </div>
+          <Dropdown
+            label="Advanced Placement (AP/IB) Credits"
+            value={formData.apCredits}
+            onChange={(val) => handleInputChange("apCredits", val as string[])}
+            options={apCreditsOptions.slice(1)}
+            multiple
+            placeholder="Select AP/IB credits (optional)"
+            error={errors.apCredits}
+          />
 
 
           {/* Additional Details */}
