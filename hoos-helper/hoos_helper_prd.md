@@ -164,5 +164,18 @@ root
 
 ---
 
+## 11. Development Proccess / Constraints
+### Development History Tracking
+- All changes made by Claude Code must be recorded in a file called `History.md` at the root of the project.  
+- For each change, Claude should:
+  - Append a dated entry in `History.md`.
+  - Summarize what was changed, why, and which files were affected.  
+  - Reference the relevant section of `@PRD.md` if applicable.  
+- This ensures Claude can always refer to both `@PRD.md` and `@History.md` to understand project goals, current status, and what has already been completed.  
+- If code changes are detected that do not match the last recorded entry in @History.md, Claude Code should ask the user whether to add a new entry describing those changes.  
+- This ensures any co-founder edits or manual updates are also captured in the project history.  
+
+---
+
 **End of MVP PRD**
 

@@ -144,7 +144,6 @@ export default function Home() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
 
