@@ -166,7 +166,7 @@ root
 
 ## 11. Development Proccess / Constraints
 ### Development History Tracking
-- All changes made by Claude Code must be recorded in a file called `History.md` at the root of the project.  
+- All changes made by Claude Code/Copilot must be recorded in a file called `History.md` at the root of the project.  
 - For each change, Claude should:
   - Append a dated entry in `History.md`.
   - Summarize what was changed, why, and which files were affected.  

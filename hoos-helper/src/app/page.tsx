@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 type DropdownProps = {
   label: string;
@@ -23,11 +23,25 @@ function Dropdown({
   error,
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const isMulti = Array.isArray(value);
 
   return (
-    <div className="text-gray-700 relative">
+    <div className="text-gray-700 relative" ref={dropdownRef}>
       <label className="block text-sm font-medium text-gray-700 mb-2">
         {label}
       </label>
@@ -178,7 +192,6 @@ export default function Home() {
 
   const apCreditsOptions = [
     '',
-    'None',
     'AP Research',
     'AP Seminar',
     'AP English Language and Composition',
