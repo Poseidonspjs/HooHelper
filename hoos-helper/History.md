@@ -97,3 +97,24 @@
 - **RAG Pipeline**: Replace placeholder logic with vector search → course retrieval → LLM processing
 
 **Status:** ✅ Complete - API endpoint ready for RAG integration and frontend connection
+
+## 2025-09-26 - Dropdown Close on Outside Click
+
+**What was changed:**
+- Updated `Dropdown` component in `src/app/page.tsx` to close when the user clicks outside of the dropdown.
+
+**Why:**
+- To improve user experience by ensuring dropdowns close when clicking outside, as dropdowns staying open could be confusing or clutter the UI.
+
+**Files affected:**
+- `src/app/page.tsx`
+
+**Implementation details:**
+- Added `useRef` to track the dropdown element.
+- Added `useEffect` to listen for `mousedown` events and close the dropdown if the click occurs outside the dropdown element.
+- Cleaned up the event listener on component unmount.
+
+**Referenced PRD sections:**
+- Section 11 Development Process / Constraints (History tracking)
+
+**Status:** ✅ Complete - Dropdowns now close when clicking outside.
