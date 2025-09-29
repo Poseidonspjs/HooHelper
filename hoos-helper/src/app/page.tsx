@@ -50,8 +50,9 @@ function Dropdown({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className={`w-full text-left flex justify-between items-center p-3 border rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-          error ? "border-red-500" : "border-gray-300"
+        className={`w-full text-left flex justify-between items-center p-3 border rounded-lg bg-white text-gray-900 hover:ring-1 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+          error ? "border-red-500 hover:ring-red-500" : "border-gray-300 hover:ring-gray-300"
+          
         }`}
       >
         <span
@@ -379,9 +380,9 @@ export default function Home() {
               id="additionalDetails"
               value={formData.additionalDetails}
               onChange={(e) => handleInputChange('additionalDetails', e.target.value)}
-              placeholder="e.g., I want to study abroad in year 3, interested in internships, prefer morning classes..."
+              placeholder="e.g., I want to study abroad in my third year, interested in internships, prefer morning classes..."
               rows={4}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-lg hover:ring-1 hover:ring-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 

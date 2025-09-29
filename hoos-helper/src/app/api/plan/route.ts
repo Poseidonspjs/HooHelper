@@ -6,7 +6,7 @@ interface PlanRequest {
   focusArea: string;
   entryYear: string;
   apCredits: string[];
-  additionalDetails: string;
+  additionalDetails?: string;
 }
 
 interface PlanResponse {

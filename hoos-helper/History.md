@@ -126,6 +126,7 @@
   - Rotate the dropdown arrow 180 degrees when the dropdown is open.
   - Add a "soft bounce" animation to the dropdown panel when it is displayed.
 - Added the `bounce-soft` animation to `globals.css`.
+- Added hovering affect to dropdowns and text area
 
 **Why:**
 - To improve user experience by providing visual feedback when the dropdown is open.
