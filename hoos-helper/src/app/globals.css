@@ -24,3 +24,22 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes bounce-soft {
+  0% {
+    transform: scaleY(0.9);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleY(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 0.3s ease-out;
+}

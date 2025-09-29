@@ -69,7 +69,9 @@ function Dropdown({
             : value || placeholder}
         </span>
         <svg
-          className="w-4 h-4 ml-2 text-gray-500"
+          className={`w-4 h-4 ml-2 text-gray-500 transition-transform duration-300 ${
+            open ? "rotate-180" : "rotate-0"
+          }`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -85,7 +87,9 @@ function Dropdown({
 
       {/* Dropdown panel */}
       {open && (
-        <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto p-2">
+        <div
+          className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto p-2 animate-bounce-soft"
+        >
           {options.map((opt) => (
             <label
               key={opt}

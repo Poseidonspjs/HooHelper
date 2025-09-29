@@ -118,3 +118,30 @@
 - Section 11 Development Process / Constraints (History tracking)
 
 **Status:** ✅ Complete - Dropdowns now close when clicking outside.
+
+## 2025-09-27 - Dropdown Enhancements: Arrow Rotation and Bounce Animation
+
+**What was changed:**
+- Updated the `Dropdown` component in `src/app/page.tsx` to:
+  - Rotate the dropdown arrow 180 degrees when the dropdown is open.
+  - Add a "soft bounce" animation to the dropdown panel when it is displayed.
+- Added the `bounce-soft` animation to `globals.css`.
+
+**Why:**
+- To improve user experience by providing visual feedback when the dropdown is open.
+- To make the dropdown panel appear more dynamic and engaging.
+
+**Files affected:**
+- `src/app/page.tsx`
+- `src/app/globals.css`
+
+**Implementation details:**
+- Added `transition-transform` and conditional `rotate-180` class to the dropdown arrow SVG in `Dropdown`.
+- Added `animate-bounce-soft` class to the dropdown panel for the bounce animation.
+- Defined the `bounce-soft` animation in `globals.css` with keyframes for a smooth scaling and fade-in effect.
+
+**Referenced PRD sections:**
+- Section 5.1 User Input (Dropdown UX improvements)
+- Section 7 Architecture & File Structure (Frontend components)
+
+**Status:** ✅ Complete - Dropdown enhancements implemented and tested.
