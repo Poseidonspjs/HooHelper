@@ -21,8 +21,10 @@ function Dropdown({
   multiple = false,
   placeholder = "Select an option",
   error,
+  disabled = false,
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // State for search term
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,6 +41,9 @@ function Dropdown({
   }, []);
 
   const isMulti = Array.isArray(value);
+  const filteredOptions = options.filter((opt) =>
+    opt.toLowerCase().includes(searchTerm.toLowerCase()) // Filter options based on search term
+  );
 
   return (
     <div className="text-gray-700 relative" ref={dropdownRef}>
@@ -46,13 +51,11 @@ function Dropdown({
         {label}
       </label>
 
-      {/* Dropdown button (shared style) */}
       <button
         type="button"
         onClick={() => setOpen(!open)}
         className={`w-full text-left flex justify-between items-center p-3 border rounded-lg bg-white text-gray-900 hover:ring-1 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
           error ? "border-red-500 hover:ring-red-500" : "border-gray-300 hover:ring-gray-300"
-          
         }`}
       >
         <span
@@ -86,12 +89,20 @@ function Dropdown({
         </svg>
       </button>
 
-      {/* Dropdown panel */}
       {open && (
         <div
           className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto p-2 animate-bounce-soft"
         >
-          {options.map((opt) => (
+          {/* Search Input */}
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search..."
+            className="w-full p-2 mb-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+          />
+
+          {filteredOptions.map((opt) => (
             <label
               key={opt}
               className={`flex items-center space-x-2 p-1 cursor-pointer ${
@@ -130,6 +141,10 @@ function Dropdown({
               <span className="text-sm text-gray-700">{opt}</span>
             </label>
           ))}
+
+          {filteredOptions.length === 0 && (
+            <p className="text-sm text-gray-500 text-center">No options found</p>
+          )}
         </div>
       )}
 

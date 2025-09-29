@@ -1,5 +1,9 @@
 # Development History - Hoo's Helper
 
+## [Unreleased]
+### Added
+- Added a search feature to the `Dropdown` component to allow users to filter options dynamically, improving usability for long option lists like AP/IB credits.
+
 ## 2025-09-25 - Frontend Input Form Implementation
 
 **What was changed:**
