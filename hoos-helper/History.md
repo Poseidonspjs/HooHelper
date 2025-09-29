@@ -1,9 +1,5 @@
 # Development History - Hoo's Helper
 
-## [Unreleased]
-### Added
-- Added a search feature to the `Dropdown` component to allow users to filter options dynamically, improving usability for long option lists like AP/IB credits.
-
 ## 2025-09-25 - Frontend Input Form Implementation
 
 **What was changed:**
@@ -150,3 +146,26 @@
 - Section 7 Architecture & File Structure (Frontend components)
 
 **Status:** ✅ Complete - Dropdown enhancements implemented and tested.
+
+## 2025-09-28 - Dropdown Enhancements: Added Search Feature
+
+**What was changed:**
+- Updated the `Dropdown` component in `src/app/page.tsx` to include a search feature that allows users to filter options dynamically.
+
+**Why:**
+- To improve usability for long option lists, such as AP/IB credits, by enabling users to quickly find relevant options.
+
+**Files affected:**
+- `src/app/page.tsx`
+
+**Implementation details:**
+- Added a search input field to the `Dropdown` component.
+- Implemented dynamic filtering of dropdown options based on the user's input.
+- Ensured the search feature is case-insensitive and updates the displayed options in real-time.
+- Maintained accessibility and responsive design for the updated dropdown.
+
+**Referenced PRD sections:**
+- Section 5.1 User Input (Dropdown UX improvements)
+- Section 7 Architecture & File Structure (Frontend components)
+
+**Status:** ✅ Complete - Dropdown search feature implemented and tested.
