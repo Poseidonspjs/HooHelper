@@ -169,3 +169,26 @@
 - Section 7 Architecture & File Structure (Frontend components)
 
 **Status:** ✅ Complete - Dropdown search feature implemented and tested.
+
+## 2025-09-29 - Added School Selection Dropdown
+
+**What was changed:**
+- Added a "School Selection" dropdown to the form in `src/app/page.tsx`.
+
+**Why:**
+- To allow users to specify their intended school as part of the academic planning process.
+
+**Files affected:**
+- `src/app/page.tsx`
+
+**Implementation details:**
+- Introduced a new `Dropdown` component for selecting the intended school.
+- Populated the dropdown with a predefined list of schools.
+- Updated the form state to include the selected school.
+- Ensured proper validation and error handling for the school selection field.
+
+**Referenced PRD sections:**
+- Section 5.1 User Input (Form fields)
+- Section 7 Architecture & File Structure (Frontend components)
+
+**Status:** ✅ Complete - School selection dropdown implemented and tested.

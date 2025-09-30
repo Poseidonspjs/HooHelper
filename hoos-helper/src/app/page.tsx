@@ -154,6 +154,7 @@ function Dropdown({
 }
 
 interface FormData {
+  school: string;
   major: string;
   focusArea: string;
   entryYear: string;
@@ -162,6 +163,7 @@ interface FormData {
 }
 
 interface FormErrors {
+  school?: string;
   major?: string;
   focusArea?: string;
   entryYear?: string;
@@ -170,6 +172,7 @@ interface FormErrors {
 
 export default function Home() {
   const [formData, setFormData] = useState<FormData>({
+    school: '',
     major: '',
     focusArea: '',
     entryYear: '',
@@ -182,6 +185,18 @@ export default function Home() {
   const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
 
   // Sample data - in a real app, these would come from API endpoints
+  const school = [
+    'School of Engineering and Applied Science',
+    'McIntire School of Commerce',
+    'College of Arts & Sciences',
+    'School of Architecture',
+    'School of Nursing',
+    'School of Education and Human Development',
+    'Frank Batten School of Leadership and Public Policy',
+    'School of Data Science',
+    'School of Continuing and Professional Studies'
+  ]
+  
   const majors = [
     'Computer Science',
     'Business Administration',
@@ -343,6 +358,16 @@ export default function Home() {
         </header>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+          {/* School Selection */}
+          <Dropdown
+            label="Intended School *"
+            value={formData.school}
+            onChange={(val) => handleInputChange("school", val as string)}
+            options={school}
+            placeholder="Select your school"
+            error={errors.school}
+          />
+
           {/* Major Selection */}
           <Dropdown
             label="Intended Major *"
