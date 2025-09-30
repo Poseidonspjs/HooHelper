@@ -77,6 +77,42 @@ Claude (or any other AI assistant) should assume this file is present and correc
 - `/plan` → Main chatbot interface with dropdown inputs and chat output
 - `/about` → About the project
 
+### 5.6 Data Ingestion & Normalization 
+
+**Goal:** Collect authoritative UVA course, major, and degree requirement information, and normalize it into JSON files for use in Hoo’s Helper’s RAG pipeline.  
+
+### Data Sources  
+1. **Majors/Minors Overview**: [https://www.virginia.edu/majors-minors/](https://www.virginia.edu/majors-minors/)  
+   - Provides all offered programs at UVA.  
+
+2. **Academic Catalog**: [https://records.ureg.virginia.edu/content.php?catoid=58&navoid=4883](https://records.ureg.virginia.edu/content.php?catoid=58&navoid=4883)  
+   - Provides detailed program requirements, degree structures, and course lists.  
+
+3. **Lou’s List**: [https://louslist.org/](https://louslist.org/)  
+   - Provides full course listings, with descriptions, credits, and prerequisites.  
+
+### Requirements  
+- Implement scrapers for each source. 
+  - Create scrapers in the `/scrapers` directory as:
+    - `/scrapers/courses_scraper.tsx`
+    - `/scrapers/majors_scraper.tsx`
+- Normalize the data into the schema defined in this PRD:  
+  - **Course Schema** (id, title, description, credits, prereqs, semestersOffered, fulfills).  
+  - **Major Schema** (major, degree, entryYear, requirements, focusAreas, apCredits).  
+- Save results in the `/data` directory as:  
+  - `/data/courses.json`  
+  - `/data/majors.json`  
+
+### Constraints  
+- Do not store scraped data in Redis (Vercel KV). JSON files will be the source of truth for MVP.  
+- Redis is reserved for **caching API/chatbot responses** only.  
+- No external keys or secrets should be hardcoded. Any authentication details (if needed in the future) will be added manually via `.env.local`.  
+
+### Deliverables  
+- Working scrapers that can populate `courses.json` and `majors.json`.  
+- Normalized datasets that follow the schema defined above.  
+- An appended note in `History.md` describing scraper creation and data ingestion progress.  
+
 ---
 
 ## 6. Non-Goals (MVP)
