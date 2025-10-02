@@ -1,60 +1,10 @@
 {
-  "lastUpdated": "2025-09-30T18:53:40.670Z",
+  "lastUpdated": "2025-10-02T17:33:20.000Z",
   "majors": [
     {
-      "major": "Computer Science",
-      "degree": "B.S.",
-      "school": "School of Engineering and Applied Science",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [
-          "CS 1110",
-          "CS 2110",
-          "CS 2150",
-          "CS 3330",
-          "CS 4102",
-          "MATH 1310",
-          "MATH 1320",
-          "MATH 2310",
-          "APMA 3080"
-        ],
-        "electives": [
-          "Computer Science Electives"
-        ],
-        "capstone": [
-          "Computer Science Capstone"
-        ]
-      },
-      "focusAreas": [
-        "Software Development",
-        "Data Science",
-        "Cybersecurity",
-        "AI/Machine Learning",
-        "Human-Computer Interaction",
-        "Computer Graphics",
-        "Systems and Networks"
-      ],
-      "apCredits": {
-        "accepted": [
-          "AP Computer Science A",
-          "AP Computer Science Principles",
-          "AP Calculus BC",
-          "AP Physics C: Mechanics",
-          "AP Physics C: Electricity and Magnetism"
-        ],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Electrical Engineering",
-      "degree": "B.S.",
-      "school": "School of Engineering and Applied Science",
+      "major": "African American and African Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -65,10 +15,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Electrical Engineering Electives"
+          "African American and African Studies Electives"
         ],
         "capstone": [
-          "Electrical Engineering Capstone"
+          "African American and African Studies Capstone"
         ]
       },
       "focusAreas": [],
@@ -78,9 +28,9 @@
       }
     },
     {
-      "major": "Mechanical Engineering",
-      "degree": "B.S.",
-      "school": "School of Engineering and Applied Science",
+      "major": "American Sign Language",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -91,10 +41,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Mechanical Engineering Electives"
+          "American Sign Language Electives"
         ],
         "capstone": [
-          "Mechanical Engineering Capstone"
+          "American Sign Language Capstone"
         ]
       },
       "focusAreas": [],
@@ -104,9 +54,9 @@
       }
     },
     {
-      "major": "Civil Engineering",
-      "degree": "B.S.",
-      "school": "School of Engineering and Applied Science",
+      "major": "American Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -117,10 +67,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Civil Engineering Electives"
+          "American Studies Electives"
         ],
         "capstone": [
-          "Civil Engineering Capstone"
+          "American Studies Capstone"
         ]
       },
       "focusAreas": [],
@@ -130,9 +80,9 @@
       }
     },
     {
-      "major": "Biomedical Engineering",
-      "degree": "B.S.",
-      "school": "School of Engineering and Applied Science",
+      "major": "Anthropology",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -143,88 +93,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Biomedical Engineering Electives"
+          "Anthropology Electives"
         ],
         "capstone": [
-          "Biomedical Engineering Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Chemical Engineering",
-      "degree": "B.S.",
-      "school": "School of Engineering and Applied Science",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Chemical Engineering Electives"
-        ],
-        "capstone": [
-          "Chemical Engineering Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Systems Engineering",
-      "degree": "B.S.",
-      "school": "School of Engineering and Applied Science",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Systems Engineering Electives"
-        ],
-        "capstone": [
-          "Systems Engineering Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Aerospace Engineering",
-      "degree": "B.S.",
-      "school": "School of Engineering and Applied Science",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Aerospace Engineering Electives"
-        ],
-        "capstone": [
-          "Aerospace Engineering Capstone"
+          "Anthropology Capstone"
         ]
       },
       "focusAreas": [],
@@ -260,9 +132,9 @@
       }
     },
     {
-      "major": "Commerce",
+      "major": "Archaeology",
       "degree": "B.A.",
-      "school": "McIntire School of Commerce",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -273,10 +145,140 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Commerce Electives"
+          "Archaeology Electives"
         ],
         "capstone": [
-          "Commerce Capstone"
+          "Archaeology Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Architectural History",
+      "degree": "B.A.",
+      "school": "School of Architecture",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Architectural History Electives"
+        ],
+        "capstone": [
+          "Architectural History Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Art History",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Art History Electives"
+        ],
+        "capstone": [
+          "Art History Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Asian Pacific American Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Asian Pacific American Studies Electives"
+        ],
+        "capstone": [
+          "Asian Pacific American Studies Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Astronomy",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Astronomy Electives"
+        ],
+        "capstone": [
+          "Astronomy Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Behavioral Neuroscience",
+      "degree": "B.S.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Behavioral Neuroscience Electives"
+        ],
+        "capstone": [
+          "Behavioral Neuroscience Capstone"
         ]
       },
       "focusAreas": [],
@@ -338,6 +340,58 @@
       }
     },
     {
+      "major": "Biomedical Engineering",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Biomedical Engineering Electives"
+        ],
+        "capstone": [
+          "Biomedical Engineering Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Chemical Engineering",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Chemical Engineering Electives"
+        ],
+        "capstone": [
+          "Chemical Engineering Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
       "major": "Chemistry",
       "degree": "B.A.",
       "school": "College of Arts & Sciences",
@@ -370,7 +424,7 @@
       }
     },
     {
-      "major": "Physics",
+      "major": "Chinese Language & Literature",
       "degree": "B.A.",
       "school": "College of Arts & Sciences",
       "entryYear": [
@@ -383,26 +437,124 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Physics Electives"
+          "Chinese Language & Literature Electives"
         ],
         "capstone": [
-          "Physics Capstone"
+          "Chinese Language & Literature Capstone"
         ]
       },
-      "focusAreas": [
-        "Theoretical Physics",
-        "Experimental Physics",
-        "Astrophysics",
-        "Condensed Matter Physics",
-        "Medical Physics"
-      ],
+      "focusAreas": [],
       "apCredits": {
         "accepted": [],
         "maxCredits": 16
       }
     },
     {
-      "major": "Mathematics",
+      "major": "Civil Engineering",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Civil Engineering Electives"
+        ],
+        "capstone": [
+          "Civil Engineering Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Classics",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Classics Electives"
+        ],
+        "capstone": [
+          "Classics Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Commerce",
+      "degree": "B.S.",
+      "school": "McIntire School of Commerce",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Commerce Electives"
+        ],
+        "capstone": [
+          "Commerce Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Computer Engineering",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Computer Engineering Electives"
+        ],
+        "capstone": [
+          "Computer Engineering Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Computer Science",
       "degree": "B.A.",
       "school": "College of Arts & Sciences",
       "entryYear": [
@@ -414,41 +566,95 @@
       "totalCredits": 120,
       "requirements": {
         "core": [
+          "CS 1110",
+          "CS 2110",
+          "CS 2150",
+          "CS 3330",
+          "CS 4102",
           "MATH 1310",
           "MATH 1320",
           "MATH 2310",
-          "MATH 3250",
-          "MATH 3310",
-          "MATH 4210",
-          "MATH 4220"
+          "APMA 3080"
         ],
         "electives": [
-          "Mathematics Electives"
+          "Computer Science Electives"
         ],
         "capstone": [
-          "Mathematics Capstone"
+          "Computer Science Capstone"
         ]
       },
       "focusAreas": [
-        "Pure Mathematics",
-        "Applied Mathematics",
-        "Statistics",
-        "Actuarial Science",
-        "Mathematical Finance"
+        "Software Development",
+        "Data Science",
+        "Cybersecurity",
+        "AI/Machine Learning",
+        "Human-Computer Interaction",
+        "Computer Graphics",
+        "Systems and Networks"
       ],
       "apCredits": {
         "accepted": [
+          "AP Computer Science A",
+          "AP Computer Science Principles",
           "AP Calculus BC",
-          "AP Statistics",
           "AP Physics C: Mechanics",
-          "AP Physics C: Electricity and Magnetism",
-          "AP Computer Science A"
+          "AP Physics C: Electricity and Magnetism"
         ],
         "maxCredits": 16
       }
     },
     {
-      "major": "Psychology",
+      "major": "Computer Science",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [
+          "CS 1110",
+          "CS 2110",
+          "CS 2150",
+          "CS 3330",
+          "CS 4102",
+          "MATH 1310",
+          "MATH 1320",
+          "MATH 2310",
+          "APMA 3080"
+        ],
+        "electives": [
+          "Computer Science Electives"
+        ],
+        "capstone": [
+          "Computer Science Capstone"
+        ]
+      },
+      "focusAreas": [
+        "Software Development",
+        "Data Science",
+        "Cybersecurity",
+        "AI/Machine Learning",
+        "Human-Computer Interaction",
+        "Computer Graphics",
+        "Systems and Networks"
+      ],
+      "apCredits": {
+        "accepted": [
+          "AP Computer Science A",
+          "AP Computer Science Principles",
+          "AP Calculus BC",
+          "AP Physics C: Mechanics",
+          "AP Physics C: Electricity and Magnetism"
+        ],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Dance",
       "degree": "B.A.",
       "school": "College of Arts & Sciences",
       "entryYear": [
@@ -459,35 +665,147 @@
       ],
       "totalCredits": 120,
       "requirements": {
-        "core": [
-          "PSYC 1010",
-          "PSYC 2005",
-          "PSYC 3005",
-          "PSYC 4998",
-          "STAT 2020",
-          "BIOL 1010"
-        ],
+        "core": [],
         "electives": [
-          "Psychology Electives"
+          "Dance Electives"
         ],
         "capstone": [
-          "Psychology Capstone"
+          "Dance Capstone"
         ]
       },
-      "focusAreas": [
-        "Clinical Psychology",
-        "Cognitive Psychology",
-        "Social Psychology",
-        "Developmental Psychology",
-        "Behavioral Neuroscience"
-      ],
+      "focusAreas": [],
       "apCredits": {
-        "accepted": [
-          "AP Psychology",
-          "AP Statistics",
-          "AP Biology",
-          "AP Research"
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Data Analytics",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Data Analytics Electives"
         ],
+        "capstone": [
+          "Data Analytics Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Data Science",
+      "degree": "B.S.",
+      "school": "School of Data Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Data Science Electives"
+        ],
+        "capstone": [
+          "Data Science Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Drama",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Drama Electives"
+        ],
+        "capstone": [
+          "Drama Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Early Childhood Education",
+      "degree": "B.S.Ed.",
+      "school": "School of Education and Human Development",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Early Childhood Education Electives"
+        ],
+        "capstone": [
+          "Early Childhood Education Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "East Asian Languages, Literatures and Culture",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "East Asian Languages, Literatures and Culture Electives"
+        ],
+        "capstone": [
+          "East Asian Languages, Literatures and Culture Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
         "maxCredits": 16
       }
     },
@@ -538,6 +856,84 @@
       }
     },
     {
+      "major": "Electrical Engineering",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Electrical Engineering Electives"
+        ],
+        "capstone": [
+          "Electrical Engineering Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Elementary Education",
+      "degree": "B.S.Ed.",
+      "school": "School of Education and Human Development",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Elementary Education Electives"
+        ],
+        "capstone": [
+          "Elementary Education Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Engineering Science",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Engineering Science Electives"
+        ],
+        "capstone": [
+          "Engineering Science Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
       "major": "English",
       "degree": "B.A.",
       "school": "College of Arts & Sciences",
@@ -571,9 +967,9 @@
       }
     },
     {
-      "major": "History",
+      "major": "Entrepreneurship",
       "degree": "B.A.",
-      "school": "College of Arts & Sciences",
+      "school": "McIntire School of Commerce",
       "entryYear": [
         2025,
         2026,
@@ -584,75 +980,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "History Electives"
+          "Entrepreneurship Electives"
         ],
         "capstone": [
-          "History Capstone"
-        ]
-      },
-      "focusAreas": [
-        "American History",
-        "European History",
-        "World History",
-        "Public History",
-        "Military History",
-        "Cultural History"
-      ],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Political Science",
-      "degree": "B.A.",
-      "school": "College of Arts & Sciences",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Political Science Electives"
-        ],
-        "capstone": [
-          "Political Science Capstone"
-        ]
-      },
-      "focusAreas": [
-        "International Relations",
-        "Public Administration",
-        "Political Theory",
-        "Comparative Politics",
-        "American Government"
-      ],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Philosophy",
-      "degree": "B.A.",
-      "school": "College of Arts & Sciences",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Philosophy Electives"
-        ],
-        "capstone": [
-          "Philosophy Capstone"
+          "Entrepreneurship Capstone"
         ]
       },
       "focusAreas": [],
@@ -662,8 +993,8 @@
       }
     },
     {
-      "major": "Anthropology",
-      "degree": "B.A.",
+      "major": "Environmental Sciences",
+      "degree": "B.S.",
       "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
@@ -675,10 +1006,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Anthropology Electives"
+          "Environmental Sciences Electives"
         ],
         "capstone": [
-          "Anthropology Capstone"
+          "Environmental Sciences Capstone"
         ]
       },
       "focusAreas": [],
@@ -688,7 +1019,7 @@
       }
     },
     {
-      "major": "Sociology",
+      "major": "Environmental Thought and Practice",
       "degree": "B.A.",
       "school": "College of Arts & Sciences",
       "entryYear": [
@@ -701,114 +1032,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Sociology Electives"
+          "Environmental Thought and Practice Electives"
         ],
         "capstone": [
-          "Sociology Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Art",
-      "degree": "B.A.",
-      "school": "College of Arts & Sciences",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Art Electives"
-        ],
-        "capstone": [
-          "Art Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Music",
-      "degree": "B.A.",
-      "school": "College of Arts & Sciences",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Music Electives"
-        ],
-        "capstone": [
-          "Music Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Drama",
-      "degree": "B.A.",
-      "school": "College of Arts & Sciences",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Drama Electives"
-        ],
-        "capstone": [
-          "Drama Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Spanish",
-      "degree": "B.A.",
-      "school": "College of Arts & Sciences",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Spanish Electives"
-        ],
-        "capstone": [
-          "Spanish Capstone"
+          "Environmental Thought and Practice Capstone"
         ]
       },
       "focusAreas": [],
@@ -870,6 +1097,221 @@
       }
     },
     {
+      "major": "Global Culture and Commerce",
+      "degree": "B.S.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Global Culture and Commerce Electives"
+        ],
+        "capstone": [
+          "Global Culture and Commerce Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Global Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Global Studies Electives"
+        ],
+        "capstone": [
+          "Global Studies Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Global Environments and Sustainability",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Global Environments and Sustainability Electives"
+        ],
+        "capstone": [
+          "Global Environments and Sustainability Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Health, Ethics, and Society",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Health, Ethics, and Society Electives"
+        ],
+        "capstone": [
+          "Health, Ethics, and Society Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Health Sciences Management",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Health Sciences Management Electives"
+        ],
+        "capstone": [
+          "Health Sciences Management Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "History",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "History Electives"
+        ],
+        "capstone": [
+          "History Capstone"
+        ]
+      },
+      "focusAreas": [
+        "American History",
+        "European History",
+        "World History",
+        "Public History",
+        "Military History",
+        "Cultural History"
+      ],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "History of Art",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "History of Art Electives"
+        ],
+        "capstone": [
+          "History of Art Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Interdisciplinary Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Interdisciplinary Studies Electives"
+        ],
+        "capstone": [
+          "Interdisciplinary Studies Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
       "major": "Italian",
       "degree": "B.A.",
       "school": "College of Arts & Sciences",
@@ -896,7 +1338,7 @@
       }
     },
     {
-      "major": "Classics",
+      "major": "Japanese Language & Literature",
       "degree": "B.A.",
       "school": "College of Arts & Sciences",
       "entryYear": [
@@ -909,10 +1351,600 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Classics Electives"
+          "Japanese Language & Literature Electives"
         ],
         "capstone": [
-          "Classics Capstone"
+          "Japanese Language & Literature Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Jewish Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Jewish Studies Electives"
+        ],
+        "capstone": [
+          "Jewish Studies Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Kinesiology",
+      "degree": "B.S.Ed.",
+      "school": "School of Education and Human Development",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Kinesiology Electives"
+        ],
+        "capstone": [
+          "Kinesiology Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Korean",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Korean Electives"
+        ],
+        "capstone": [
+          "Korean Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Latin American Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Latin American Studies Electives"
+        ],
+        "capstone": [
+          "Latin American Studies Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Leadership",
+      "degree": "B.A.",
+      "school": "McIntire School of Commerce",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Leadership Electives"
+        ],
+        "capstone": [
+          "Leadership Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Linguistics",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Linguistics Electives"
+        ],
+        "capstone": [
+          "Linguistics Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Materials Science and Engineering",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Materials Science and Engineering Electives"
+        ],
+        "capstone": [
+          "Materials Science and Engineering Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Mathematics",
+      "degree": "B.S.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [
+          "MATH 1310",
+          "MATH 1320",
+          "MATH 2310",
+          "MATH 3250",
+          "MATH 3310",
+          "MATH 4210",
+          "MATH 4220"
+        ],
+        "electives": [
+          "Mathematics Electives"
+        ],
+        "capstone": [
+          "Mathematics Capstone"
+        ]
+      },
+      "focusAreas": [
+        "Pure Mathematics",
+        "Applied Mathematics",
+        "Statistics",
+        "Actuarial Science",
+        "Mathematical Finance"
+      ],
+      "apCredits": {
+        "accepted": [
+          "AP Calculus BC",
+          "AP Statistics",
+          "AP Physics C: Mechanics",
+          "AP Physics C: Electricity and Magnetism",
+          "AP Computer Science A"
+        ],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Media Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Media Studies Electives"
+        ],
+        "capstone": [
+          "Media Studies Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Medieval Studies",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Medieval Studies Electives"
+        ],
+        "capstone": [
+          "Medieval Studies Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Middle Eastern and South Asian Languages and Cultures",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Middle Eastern and South Asian Languages and Cultures Electives"
+        ],
+        "capstone": [
+          "Middle Eastern and South Asian Languages and Cultures Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Music",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Music Electives"
+        ],
+        "capstone": [
+          "Music Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Neuroscience",
+      "degree": "B.S.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Neuroscience Electives"
+        ],
+        "capstone": [
+          "Neuroscience Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Philosophy",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Philosophy Electives"
+        ],
+        "capstone": [
+          "Philosophy Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Physics",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Physics Electives"
+        ],
+        "capstone": [
+          "Physics Capstone"
+        ]
+      },
+      "focusAreas": [
+        "Theoretical Physics",
+        "Experimental Physics",
+        "Astrophysics",
+        "Condensed Matter Physics",
+        "Medical Physics"
+      ],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Political and Social Thought",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Political and Social Thought Electives"
+        ],
+        "capstone": [
+          "Political and Social Thought Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Political Philosophy, Policy, and Law",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Political Philosophy, Policy, and Law Electives"
+        ],
+        "capstone": [
+          "Political Philosophy, Policy, and Law Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Politics",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Politics Electives"
+        ],
+        "capstone": [
+          "Politics Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Portuguese",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Portuguese Electives"
+        ],
+        "capstone": [
+          "Portuguese Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Psychology",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [
+          "PSYC 1010",
+          "PSYC 2005",
+          "PSYC 3005",
+          "PSYC 4998",
+          "STAT 2020",
+          "BIOL 1010"
+        ],
+        "electives": [
+          "Psychology Electives"
+        ],
+        "capstone": [
+          "Psychology Capstone"
+        ]
+      },
+      "focusAreas": [
+        "Clinical Psychology",
+        "Cognitive Psychology",
+        "Social Psychology",
+        "Developmental Psychology",
+        "Behavioral Neuroscience"
+      ],
+      "apCredits": {
+        "accepted": [
+          "AP Psychology",
+          "AP Statistics",
+          "AP Biology",
+          "AP Research"
+        ],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Public Policy and Leadership",
+      "degree": "B.A.",
+      "school": "Frank Batten School of Leadership and Public Policy",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Public Policy and Leadership Electives"
+        ],
+        "capstone": [
+          "Public Policy and Leadership Capstone"
         ]
       },
       "focusAreas": [],
@@ -948,9 +1980,9 @@
       }
     },
     {
-      "major": "Architecture",
+      "major": "Slavic Languages and Literatures",
       "degree": "B.A.",
-      "school": "School of Architecture",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -961,10 +1993,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Architecture Electives"
+          "Slavic Languages and Literatures Electives"
         ],
         "capstone": [
-          "Architecture Capstone"
+          "Slavic Languages and Literatures Capstone"
         ]
       },
       "focusAreas": [],
@@ -974,9 +2006,9 @@
       }
     },
     {
-      "major": "Landscape Architecture",
+      "major": "Sociology",
       "degree": "B.A.",
-      "school": "School of Architecture",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -987,10 +2019,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Landscape Architecture Electives"
+          "Sociology Electives"
         ],
         "capstone": [
-          "Landscape Architecture Capstone"
+          "Sociology Capstone"
         ]
       },
       "focusAreas": [],
@@ -1000,9 +2032,9 @@
       }
     },
     {
-      "major": "Urban Planning",
+      "major": "South Asian Languages and Literatures",
       "degree": "B.A.",
-      "school": "School of Architecture",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -1013,10 +2045,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Urban Planning Electives"
+          "South Asian Languages and Literatures Electives"
         ],
         "capstone": [
-          "Urban Planning Capstone"
+          "South Asian Languages and Literatures Capstone"
         ]
       },
       "focusAreas": [],
@@ -1026,9 +2058,9 @@
       }
     },
     {
-      "major": "Nursing",
+      "major": "Spanish",
       "degree": "B.A.",
-      "school": "School of Nursing",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -1039,10 +2071,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Nursing Electives"
+          "Spanish Electives"
         ],
         "capstone": [
-          "Nursing Capstone"
+          "Spanish Capstone"
         ]
       },
       "focusAreas": [],
@@ -1052,8 +2084,8 @@
       }
     },
     {
-      "major": "Education",
-      "degree": "B.A.",
+      "major": "Special Education",
+      "degree": "B.S.Ed.",
       "school": "School of Education and Human Development",
       "entryYear": [
         2025,
@@ -1065,10 +2097,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Education Electives"
+          "Special Education Electives"
         ],
         "capstone": [
-          "Education Capstone"
+          "Special Education Capstone"
         ]
       },
       "focusAreas": [],
@@ -1078,8 +2110,8 @@
       }
     },
     {
-      "major": "Kinesiology",
-      "degree": "B.A.",
+      "major": "Speech Communication Disorders",
+      "degree": "B.S.Ed.",
       "school": "School of Education and Human Development",
       "entryYear": [
         2025,
@@ -1091,114 +2123,10 @@
       "requirements": {
         "core": [],
         "electives": [
-          "Kinesiology Electives"
+          "Speech Communication Disorders Electives"
         ],
         "capstone": [
-          "Kinesiology Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Human Services",
-      "degree": "B.A.",
-      "school": "School of Education and Human Development",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Human Services Electives"
-        ],
-        "capstone": [
-          "Human Services Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Public Policy",
-      "degree": "B.A.",
-      "school": "Frank Batten School of Leadership and Public Policy",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Public Policy Electives"
-        ],
-        "capstone": [
-          "Public Policy Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Leadership Studies",
-      "degree": "B.A.",
-      "school": "Frank Batten School of Leadership and Public Policy",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Leadership Studies Electives"
-        ],
-        "capstone": [
-          "Leadership Studies Capstone"
-        ]
-      },
-      "focusAreas": [],
-      "apCredits": {
-        "accepted": [],
-        "maxCredits": 16
-      }
-    },
-    {
-      "major": "Data Science",
-      "degree": "B.A.",
-      "school": "School of Data Science",
-      "entryYear": [
-        2025,
-        2026,
-        2027,
-        2028
-      ],
-      "totalCredits": 120,
-      "requirements": {
-        "core": [],
-        "electives": [
-          "Data Science Electives"
-        ],
-        "capstone": [
-          "Data Science Capstone"
+          "Speech Communication Disorders Capstone"
         ]
       },
       "focusAreas": [],
@@ -1210,7 +2138,7 @@
     {
       "major": "Statistics",
       "degree": "B.A.",
-      "school": "School of Data Science",
+      "school": "College of Arts & Sciences",
       "entryYear": [
         2025,
         2026,
@@ -1225,6 +2153,448 @@
         ],
         "capstone": [
           "Statistics Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Studio Art",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Studio Art Electives"
+        ],
+        "capstone": [
+          "Studio Art Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Systems Engineering",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Systems Engineering Electives"
+        ],
+        "capstone": [
+          "Systems Engineering Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Urban and Environmental Planning",
+      "degree": "B.A.",
+      "school": "School of Architecture",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Urban and Environmental Planning Electives"
+        ],
+        "capstone": [
+          "Urban and Environmental Planning Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Women, Gender & Sexuality",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Women, Gender & Sexuality Electives"
+        ],
+        "capstone": [
+          "Women, Gender & Sexuality Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Youth & Social Innovation",
+      "degree": "B.S.Ed.",
+      "school": "School of Education and Human Development",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Youth & Social Innovation Electives"
+        ],
+        "capstone": [
+          "Youth & Social Innovation Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Accounting",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Accounting Electives"
+        ],
+        "capstone": [
+          "Accounting Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Certified Financial Planning",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Certified Financial Planning Electives"
+        ],
+        "capstone": [
+          "Certified Financial Planning Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Cloud Computing",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Cloud Computing Electives"
+        ],
+        "capstone": [
+          "Cloud Computing Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Cybersecurity Analysis",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Cybersecurity Analysis Electives"
+        ],
+        "capstone": [
+          "Cybersecurity Analysis Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Information Technology",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Information Technology Electives"
+        ],
+        "capstone": [
+          "Information Technology Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "National Criminal Justice Command College",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "National Criminal Justice Command College Electives"
+        ],
+        "capstone": [
+          "National Criminal Justice Command College Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Air Force ROTC",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Air Force ROTC Electives"
+        ],
+        "capstone": [
+          "Air Force ROTC Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Applied Mathematics Program",
+      "degree": "B.S.",
+      "school": "School of Engineering and Applied Science",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Applied Mathematics Program Electives"
+        ],
+        "capstone": [
+          "Applied Mathematics Program Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Army ROTC",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Army ROTC Electives"
+        ],
+        "capstone": [
+          "Army ROTC Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Interdisciplinary Major Program",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Interdisciplinary Major Program Electives"
+        ],
+        "capstone": [
+          "Interdisciplinary Major Program Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Lifetime Physical Activity Options",
+      "degree": "B.A.",
+      "school": "School of Education and Human Development",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Lifetime Physical Activity Options Electives"
+        ],
+        "capstone": [
+          "Lifetime Physical Activity Options Capstone"
+        ]
+      },
+      "focusAreas": [],
+      "apCredits": {
+        "accepted": [],
+        "maxCredits": 16
+      }
+    },
+    {
+      "major": "Naval ROTC",
+      "degree": "B.A.",
+      "school": "College of Arts & Sciences",
+      "entryYear": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "totalCredits": 120,
+      "requirements": {
+        "core": [],
+        "electives": [
+          "Naval ROTC Electives"
+        ],
+        "capstone": [
+          "Naval ROTC Capstone"
         ]
       },
       "focusAreas": [],

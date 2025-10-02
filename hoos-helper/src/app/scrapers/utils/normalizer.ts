@@ -222,16 +222,26 @@ function normalizeDegreeType(degree: string): string {
   const degreeMap: Record<string, string> = {
     'bachelor of arts': 'B.A.',
     'bachelor of science': 'B.S.',
+    'bachelor of science in commerce': 'B.S.C.',
     'bachelor of science in education': 'B.S.Ed.',
     'bachelor of fine arts': 'B.F.A.',
     'bachelor of architecture': 'B.Arch.',
     'bachelor of science in nursing': 'B.S.N.',
     'ba': 'B.A.',
     'bs': 'B.S.',
+    'bsc': 'B.S.C.',
     'bsed': 'B.S.Ed.',
     'bfa': 'B.F.A.',
     'barch': 'B.Arch.',
-    'bsn': 'B.S.N.'
+    'bsn': 'B.S.N.',
+    // Handle already-formatted degree types with periods
+    'b.a.': 'B.A.',
+    'b.s.': 'B.S.',
+    'b.s.c.': 'B.S.C.',
+    'b.s.ed.': 'B.S.Ed.',
+    'b.f.a.': 'B.F.A.',
+    'b.arch.': 'B.Arch.',
+    'b.s.n.': 'B.S.N.'
   };
 
   const normalized = degreeMap[degree.toLowerCase()];

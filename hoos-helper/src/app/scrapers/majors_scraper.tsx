@@ -158,33 +158,158 @@ export async function scrapeMajorsFromUVA(): Promise<ScrapingResult<RawMajor>> {
     const $ = parseHtml(html);
 
     const rawMajors: RawMajor[] = [];
+    const rawMinors: RawMajor[] = [];
 
-    // Scrape the main majors/minors list
-    $('.content-area ul li a').each((index, element) => {
+    // The page has a simple list structure with links to programs
+    // Find all links that look like they point to majors/minors
+    const foundPrograms = new Set<string>(); // Track duplicates
+
+    $('li a').each((index, element) => {
       const link = $(element);
-      const majorName = cleanText(link.text());
-      const majorUrl = link.attr('href');
+      const programName = cleanText(link.text());
+      const programUrl = link.attr('href');
 
-      if (majorName && majorUrl) {
-        // Infer degree and school from major name
-        const { degree, school } = inferDegreeAndSchool(majorName);
+      // Filter out navigation links, empty links, and very short text
+      if (programName && programUrl && programName.length > 2 && !foundPrograms.has(programName)) {
+        // Only include links that point to UVA subdomains or majors/programs
+        const lowerUrl = programUrl.toLowerCase();
+        const isUVALink = lowerUrl.includes('virginia.edu') || programUrl.startsWith('/');
 
-        rawMajors.push({
-          name: majorName,
-          degree,
-          school,
-          focusAreas: FOCUS_AREAS_MAP[majorName] || [],
-          sourceUrl: majorUrl.startsWith('http') ? majorUrl : `${MAJORS_CONFIG.baseUrl}${majorUrl}`
-        });
+        // Exclude navigation, utility, footer links, and non-academic content
+        const lowerProgramName = programName.toLowerCase();
+        const isNavigationLink = lowerUrl.includes('sisuva') ||
+                                 lowerUrl.includes('canvas') ||
+                                 lowerUrl.includes('/email') ||
+                                 lowerUrl.includes('/jobs') ||
+                                 lowerUrl.includes('/directory') ||
+                                 lowerUrl.includes('hr.virginia.edu') ||
+                                 lowerUrl.includes('search.people.virginia.edu') ||
+                                 lowerUrl.includes('iso.virginia.edu') ||
+                                 lowerUrl.includes('/about-uva') ||
+                                 lowerUrl.includes('/admission') ||
+                                 lowerUrl.includes('/research') ||
+                                 lowerUrl.includes('/tuition') ||
+                                 lowerUrl.includes('/life-uva') ||
+                                 lowerUrl.includes('/visit') ||
+                                 lowerUrl.includes('/mission') ||
+                                 lowerUrl.includes('/facts-figures') ||
+                                 lowerUrl.includes('/academics/') && !lowerUrl.includes('programs') ||
+                                 lowerUrl.includes('president.virginia.edu') ||
+                                 lowerUrl.includes('strategicplan') ||
+                                 lowerUrl.includes('giving.virginia.edu') ||
+                                 lowerUrl.includes('registrar.virginia.edu') ||
+                                 lowerUrl.includes('online.virginia.edu') && !lowerUrl.includes('/programs') ||
+                                 lowerUrl.includes('/continuing-executive') ||
+                                 lowerUrl.includes('/international-studies/') ||
+                                 lowerUrl.includes('/january-term') ||
+                                 lowerUrl.includes('/graduate-admission') ||
+                                 lowerUrl.includes('/graduate-studies/') ||
+                                 lowerUrl.includes('/undergraduate-studies/') ||
+                                 lowerUrl.includes('students.virginia.edu') ||
+                                 lowerUrl.includes('accessibility.virginia.edu') ||
+                                 lowerUrl.includes('/consumer-information') ||
+                                 lowerUrl.includes('/contact-us') ||
+                                 lowerUrl.includes('uvaemergency') ||
+                                 lowerUrl.includes('/foia') ||
+                                 lowerUrl.includes('/privacy') ||
+                                 lowerUrl.includes('eocr.virginia.edu') ||
+                                 lowerUrl.includes('/libraries') ||
+                                 lowerUrl.includes('/arts-uva') ||
+                                 lowerUrl.includes('academic-affairs.provost') ||
+                                 lowerUrl.includes('rotc.virginia.edu') && !lowerUrl.includes('arotc') && !lowerUrl.includes('nrotc') && !lowerUrl.includes('afrotc') ||
+                                 lowerUrl.includes('/open-learning') ||
+                                 lowerUrl.includes('certificate') && !lowerUrl.includes('/programs/') ||
+                                 lowerUrl.includes('/awards-and-honors') ||
+                                 lowerUrl.includes('/special-programs') ||
+                                 lowerUrl.includes('/academic-skills') ||
+                                 lowerUrl.includes('/kinesiology') && lowerUrl.includes('physical-activity') ||
+                                 lowerProgramName === 'home' ||
+                                 lowerProgramName === 'jobs' ||
+                                 lowerProgramName === 'directory' ||
+                                 lowerProgramName === 'international studies' ||
+                                 lowerProgramName.includes('seminar') ||
+                                 lowerProgramName === 'academics' ||
+                                 lowerProgramName === 'schools' ||
+                                 lowerProgramName === 'libraries' ||
+                                 lowerProgramName === 'arts' ||
+                                 lowerProgramName.includes('calendar') ||
+                                 lowerProgramName.includes('rotc') && !lowerProgramName.includes('air force') && !lowerProgramName.includes('army') && !lowerProgramName.includes('naval');
+
+        if (isUVALink && !isNavigationLink) {
+          foundPrograms.add(programName);
+
+          // Build full URL
+          const fullUrl = programUrl.startsWith('http') ? programUrl : `${MAJORS_CONFIG.baseUrl}${programUrl}`;
+
+          // Check if this program offers multiple degrees (e.g., "Computer Science, B.A. and B.S.")
+          const multiDegreePrograms = parseMultiDegreeProgram(programName);
+
+          if (multiDegreePrograms) {
+            // Create separate entry for each degree
+            for (const { name: cleanName, degree } of multiDegreePrograms) {
+              const school = inferSchoolFromUrl(fullUrl) || inferSchoolFromName(cleanName);
+              const isMajor = !isMinorProgram(cleanName);
+
+              const program: RawMajor = {
+                name: cleanName,
+                degree,
+                school,
+                focusAreas: FOCUS_AREAS_MAP[cleanName] || [],
+                sourceUrl: fullUrl,
+                description: isMajor ? `Major in ${cleanName}` : `Minor in ${cleanName}`
+              };
+
+              if (isMajor) {
+                rawMajors.push(program);
+              } else {
+                rawMinors.push(program);
+              }
+            }
+          } else {
+            // Parse single degree program (may have degree suffix like "Data Science, B.S.")
+            const { name: cleanName, degree: explicitDegree } = parseProgramNameAndDegree(programName);
+
+            // If degree is explicitly in the name, use it; otherwise infer it
+            let degree: string;
+            let school: string;
+            let isMajor: boolean;
+
+            if (explicitDegree) {
+              // Use explicit degree from program name
+              degree = explicitDegree;
+              school = inferSchoolFromUrl(fullUrl) || inferSchoolFromName(cleanName);
+              isMajor = !isMinorProgram(cleanName);
+            } else {
+              // Infer degree, school, and major/minor status
+              const inferred = inferDegreeAndSchool(cleanName, fullUrl);
+              degree = inferred.degree;
+              school = inferred.school;
+              isMajor = inferred.isMajor;
+            }
+
+            const program: RawMajor = {
+              name: cleanName,
+              degree,
+              school,
+              focusAreas: FOCUS_AREAS_MAP[cleanName] || [],
+              sourceUrl: fullUrl,
+              description: isMajor ? `Major in ${cleanName}` : `Minor in ${cleanName}`
+            };
+
+            if (isMajor) {
+              rawMajors.push(program);
+            } else {
+              rawMinors.push(program);
+            }
+          }
+        }
       }
     });
 
-    // Add additional majors that might not be in the main list
-    const additionalMajors = generateAdditionalMajors();
-    rawMajors.push(...additionalMajors);
+    logProgress(`Scraped ${rawMajors.length} majors and ${rawMinors.length} minors from UVA page`);
 
-    logProgress(`Scraped ${rawMajors.length} majors from UVA majors-minors page`);
-
+    // For now, only return majors (as per PRD focus)
+    // Minors can be integrated later if needed
     return createSuccessResult(rawMajors, `Successfully scraped ${rawMajors.length} majors`);
 
   } catch (error) {
@@ -194,29 +319,115 @@ export async function scrapeMajorsFromUVA(): Promise<ScrapingResult<RawMajor>> {
   }
 }
 
-// Infer degree type and school from major name
-function inferDegreeAndSchool(majorName: string): { degree: string; school: string } {
+// Infer school from URL domain patterns
+function inferSchoolFromUrl(url: string): string | null {
+  const lowerUrl = url.toLowerCase();
+
+  if (lowerUrl.includes('engineering.virginia.edu') || lowerUrl.includes('/seas/')) {
+    return 'School of Engineering and Applied Science';
+  }
+  if (lowerUrl.includes('commerce.virginia.edu') || lowerUrl.includes('mcintire')) {
+    return 'McIntire School of Commerce';
+  }
+  if (lowerUrl.includes('nursing.virginia.edu')) {
+    return 'School of Nursing';
+  }
+  if (lowerUrl.includes('arch.virginia.edu') || lowerUrl.includes('architecture')) {
+    return 'School of Architecture';
+  }
+  if (lowerUrl.includes('education.virginia.edu') || lowerUrl.includes('/curry/')) {
+    return 'School of Education and Human Development';
+  }
+  if (lowerUrl.includes('batten.virginia.edu')) {
+    return 'Frank Batten School of Leadership and Public Policy';
+  }
+  if (lowerUrl.includes('datascience.virginia.edu') || lowerUrl.includes('/dsi/')) {
+    return 'School of Data Science';
+  }
+  if (lowerUrl.includes('as.virginia.edu') || lowerUrl.includes('/arts-sciences/')) {
+    return 'College of Arts & Sciences';
+  }
+
+  return null; // Unknown, will use name-based inference
+}
+
+// Detect if program is a minor based on name
+function isMinorProgram(name: string): boolean {
+  const lowerName = name.toLowerCase();
+  return lowerName.includes('minor') || lowerName.endsWith(' - minor');
+}
+
+// Parse program name and extract degree suffix if present
+// Example: "Data Science, B.S." -> { name: "Data Science", degree: "B.S." }
+// Example: "Biology" -> { name: "Biology", degree: null }
+// Example: "Early Childhood Education, B.S.Ed." -> { name: "Early Childhood Education", degree: "B.S.Ed." }
+function parseProgramNameAndDegree(programName: string): { name: string; degree: string | null } {
+  // Match patterns like ", B.S." or ", B.A." or ", B.S.Ed." or ", B.Arch." at the end
+  // Pattern matches: B. + letters + . + optional (letters + .)
+  const degreePattern = /,\s*(B\.[A-Za-z]+\.(?:[A-Za-z]+\.)?)\s*$/;
+  const match = programName.match(degreePattern);
+
+  if (match) {
+    const cleanName = programName.replace(degreePattern, '').trim();
+    const degree = match[1];
+    return { name: cleanName, degree };
+  }
+
+  return { name: programName, degree: null };
+}
+
+// Parse programs that offer multiple degrees (e.g., "Computer Science, B.A. and B.S.")
+// Returns array of program entries, one for each degree
+function parseMultiDegreeProgram(programName: string): { name: string; degree: string }[] | null {
+  // Match pattern like "Program Name, B.A. and B.S."
+  // Pattern matches: B. + letters + . for each degree
+  const multiDegreePattern = /^(.+?),\s*(B\.[A-Za-z]+\.(?:[A-Za-z]+\.)?)\s+and\s+(B\.[A-Za-z]+\.(?:[A-Za-z]+\.)?)\s*$/;
+  const match = programName.match(multiDegreePattern);
+
+  if (match) {
+    const cleanName = match[1].trim();
+    const degree1 = match[2];
+    const degree2 = match[3];
+    return [
+      { name: cleanName, degree: degree1 },
+      { name: cleanName, degree: degree2 }
+    ];
+  }
+
+  return null;
+}
+
+// Infer degree type and school from major name and URL
+function inferDegreeAndSchool(majorName: string, sourceUrl: string = ''): { degree: string; school: string; isMajor: boolean } {
   const lowerName = majorName.toLowerCase();
+  const isMajor = !isMinorProgram(majorName);
+
+  // First try to infer school from URL if available
+  let school = sourceUrl ? inferSchoolFromUrl(sourceUrl) : null;
+
+  // Fall back to name-based inference if URL didn't work
+  if (!school) {
+    school = inferSchoolFromName(majorName);
+  }
 
   // Check for explicit degree mentions in name
   if (lowerName.includes('b.s.') || lowerName.includes('bachelor of science')) {
-    return { degree: 'B.S.', school: inferSchoolFromName(majorName) };
+    return { degree: 'B.S.', school, isMajor };
   }
   if (lowerName.includes('b.a.') || lowerName.includes('bachelor of arts')) {
-    return { degree: 'B.A.', school: inferSchoolFromName(majorName) };
+    return { degree: 'B.A.', school, isMajor };
   }
   if (lowerName.includes('b.s.ed.') || lowerName.includes('education')) {
-    return { degree: 'B.S.Ed.', school: 'School of Education and Human Development' };
+    return { degree: 'B.S.Ed.', school: 'School of Education and Human Development', isMajor };
   }
   if (lowerName.includes('architecture')) {
-    return { degree: 'B.Arch.', school: 'School of Architecture' };
+    return { degree: 'B.Arch.', school: 'School of Architecture', isMajor };
   }
   if (lowerName.includes('nursing')) {
-    return { degree: 'B.S.N.', school: 'School of Nursing' };
+    return { degree: 'B.S.N.', school: 'School of Nursing', isMajor };
   }
 
   // Default inference based on typical UVA patterns
-  const school = inferSchoolFromName(majorName);
   let degree = 'B.A.'; // Default
 
   // Engineering and science majors typically award B.S.
@@ -231,7 +442,12 @@ function inferDegreeAndSchool(majorName: string): { degree: string; school: stri
     degree = 'B.S.';
   }
 
-  return { degree, school };
+  // Data Science
+  if (lowerName.includes('data science')) {
+    degree = 'B.S.';
+  }
+
+  return { degree, school, isMajor };
 }
 
 // Infer school from major name
@@ -249,25 +465,11 @@ function inferSchoolFromName(majorName: string): string {
   return 'College of Arts & Sciences'; // Default
 }
 
-// Generate additional majors with complete data based on UVA offerings
+// This function is no longer needed as we're scraping real data
+// Kept for reference in case fallback is needed
 function generateAdditionalMajors(): RawMajor[] {
-  const additionalMajors: RawMajor[] = [];
-
-  for (const [school, majors] of Object.entries(UVA_SCHOOLS)) {
-    for (const majorName of majors) {
-      const { degree } = inferDegreeAndSchool(majorName);
-
-      additionalMajors.push({
-        name: majorName,
-        degree,
-        school,
-        focusAreas: FOCUS_AREAS_MAP[majorName] || [],
-        sourceUrl: 'https://www.virginia.edu/majors-minors/'
-      });
-    }
-  }
-
-  return additionalMajors;
+  // This function has been deprecated in favor of real scraping
+  return [];
 }
 
 // Main function to scrape, normalize, and save majors data

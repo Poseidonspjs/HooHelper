@@ -1,81 +1,99 @@
 [
   {
-    "name": "Computer Science",
-    "degree": "B.S.",
-    "school": "School of Engineering and Applied Science",
-    "focusAreas": [
-      "Software Development",
-      "Data Science",
-      "Cybersecurity",
-      "AI/Machine Learning",
-      "Human-Computer Interaction",
-      "Computer Graphics",
-      "Systems and Networks"
-    ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "name": "African American and African Studies",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://woodson.as.virginia.edu/undergraduate-program",
+    "description": "Major in African American and African Studies"
   },
   {
-    "name": "Electrical Engineering",
-    "degree": "B.S.",
-    "school": "School of Engineering and Applied Science",
+    "name": "American Sign Language",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://asl.virginia.edu/",
+    "description": "Major in American Sign Language"
   },
   {
-    "name": "Mechanical Engineering",
-    "degree": "B.S.",
-    "school": "School of Engineering and Applied Science",
+    "name": "American Studies",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://americanstudies.as.virginia.edu/",
+    "description": "Major in American Studies"
   },
   {
-    "name": "Civil Engineering",
-    "degree": "B.S.",
-    "school": "School of Engineering and Applied Science",
+    "name": "Anthropology",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Biomedical Engineering",
-    "degree": "B.S.",
-    "school": "School of Engineering and Applied Science",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Chemical Engineering",
-    "degree": "B.S.",
-    "school": "School of Engineering and Applied Science",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Systems Engineering",
-    "degree": "B.S.",
-    "school": "School of Engineering and Applied Science",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Aerospace Engineering",
-    "degree": "B.S.",
-    "school": "School of Engineering and Applied Science",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://anthropology.as.virginia.edu/undergraduate-degree-programs",
+    "description": "Major in Anthropology"
   },
   {
     "name": "Applied Mathematics",
     "degree": "B.S.",
     "school": "School of Engineering and Applied Science",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://engineering.virginia.edu/offices-programs/applied-mathematics",
+    "description": "Major in Applied Mathematics"
   },
   {
-    "name": "Commerce",
-    "degree": "B.S.",
-    "school": "McIntire School of Commerce",
+    "name": "Archaeology",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://archaeology.virginia.edu/",
+    "description": "Major in Archaeology"
+  },
+  {
+    "name": "Architectural History",
+    "degree": "B.A.",
+    "school": "School of Architecture",
+    "focusAreas": [],
+    "sourceUrl": "https://www.arch.virginia.edu/programs/architectural-history",
+    "description": "Major in Architectural History"
+  },
+  {
+    "name": "Architecture",
+    "degree": "B.Arch.",
+    "school": "School of Architecture",
+    "focusAreas": [],
+    "sourceUrl": "https://www.arch.virginia.edu/programs/architecture",
+    "description": "Major in Architecture"
+  },
+  {
+    "name": "Art History",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://art.as.virginia.edu/art-history",
+    "description": "Major in Art History"
+  },
+  {
+    "name": "Asian Pacific American Studies",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://americanstudies.as.virginia.edu/minor-asian-pacific-american-studies",
+    "description": "Major in Asian Pacific American Studies"
+  },
+  {
+    "name": "Astronomy",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://astronomy.as.virginia.edu/why-study-astronomy",
+    "description": "Major in Astronomy"
+  },
+  {
+    "name": "Behavioral Neuroscience",
+    "degree": "B.S.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://psychology.as.virginia.edu/bs-behavioral-neuroscience",
+    "description": "Major in Behavioral Neuroscience"
   },
   {
     "name": "Biology",
@@ -90,7 +108,24 @@
       "Ecology",
       "Biochemistry"
     ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://bio.as.virginia.edu/undergraduate",
+    "description": "Major in Biology"
+  },
+  {
+    "name": "Biomedical Engineering",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/bme",
+    "description": "Major in Biomedical Engineering"
+  },
+  {
+    "name": "Chemical Engineering",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/department/chemical-engineering/academics/che-undergraduate-programs",
+    "description": "Major in Chemical Engineering"
   },
   {
     "name": "Chemistry",
@@ -103,46 +138,128 @@
       "Biochemistry",
       "Materials Chemistry"
     ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://chemistry.as.virginia.edu/undergraduate",
+    "description": "Major in Chemistry"
   },
   {
-    "name": "Physics",
+    "name": "Chinese Language & Literature",
     "degree": "B.A.",
     "school": "College of Arts & Sciences",
-    "focusAreas": [
-      "Theoretical Physics",
-      "Experimental Physics",
-      "Astrophysics",
-      "Condensed Matter Physics",
-      "Medical Physics"
-    ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "focusAreas": [],
+    "sourceUrl": "https://eastasian.as.virginia.edu/chinese",
+    "description": "Major in Chinese Language & Literature"
   },
   {
-    "name": "Mathematics",
+    "name": "Civil Engineering",
     "degree": "B.S.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [
-      "Pure Mathematics",
-      "Applied Mathematics",
-      "Statistics",
-      "Actuarial Science",
-      "Mathematical Finance"
-    ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/department/civil-and-environmental-engineering/academics/cee-undergraduate-programs",
+    "description": "Major in Civil Engineering"
   },
   {
-    "name": "Psychology",
+    "name": "Classics",
     "degree": "B.A.",
     "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://classics.as.virginia.edu/undergraduate-program",
+    "description": "Major in Classics"
+  },
+  {
+    "name": "Commerce",
+    "degree": "B.S.",
+    "school": "McIntire School of Commerce",
+    "focusAreas": [],
+    "sourceUrl": "https://www.commerce.virginia.edu/bs-commerce",
+    "description": "Major in Commerce"
+  },
+  {
+    "name": "Computer Engineering",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/offices-programs/computer-engineering-program",
+    "description": "Major in Computer Engineering"
+  },
+  {
+    "name": "Computer Science",
+    "degree": "B.A.",
+    "school": "School of Engineering and Applied Science",
     "focusAreas": [
-      "Clinical Psychology",
-      "Cognitive Psychology",
-      "Social Psychology",
-      "Developmental Psychology",
-      "Behavioral Neuroscience"
+      "Software Development",
+      "Data Science",
+      "Cybersecurity",
+      "AI/Machine Learning",
+      "Human-Computer Interaction",
+      "Computer Graphics",
+      "Systems and Networks"
     ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://engineering.virginia.edu/department/computer-science/academics/cs-undergraduate-programs",
+    "description": "Major in Computer Science"
+  },
+  {
+    "name": "Computer Science",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [
+      "Software Development",
+      "Data Science",
+      "Cybersecurity",
+      "AI/Machine Learning",
+      "Human-Computer Interaction",
+      "Computer Graphics",
+      "Systems and Networks"
+    ],
+    "sourceUrl": "https://engineering.virginia.edu/department/computer-science/academics/cs-undergraduate-programs",
+    "description": "Major in Computer Science"
+  },
+  {
+    "name": "Dance",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://drama.virginia.edu/minor-dance",
+    "description": "Major in Dance"
+  },
+  {
+    "name": "Data Analytics",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://statistics.as.virginia.edu/minor-data-analytics",
+    "description": "Major in Data Analytics"
+  },
+  {
+    "name": "Data Science",
+    "degree": "B.S.",
+    "school": "School of Data Science",
+    "focusAreas": [],
+    "sourceUrl": "https://datascience.virginia.edu/degrees/bsds",
+    "description": "Major in Data Science"
+  },
+  {
+    "name": "Drama",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://drama.virginia.edu/degree-programs",
+    "description": "Major in Drama"
+  },
+  {
+    "name": "Early Childhood Education",
+    "degree": "B.S.Ed.",
+    "school": "School of Education and Human Development",
+    "focusAreas": [],
+    "sourceUrl": "https://education.virginia.edu/academics/programs/early-childhood-education-bsed-bachelor-science-education",
+    "description": "Major in Early Childhood Education"
+  },
+  {
+    "name": "East Asian Languages, Literatures and Culture",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://eastasian.as.virginia.edu/east-asian-studies",
+    "description": "Major in East Asian Languages, Literatures and Culture"
   },
   {
     "name": "Economics",
@@ -155,7 +272,32 @@
       "Behavioral Economics",
       "Development Economics"
     ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://economics.virginia.edu/",
+    "description": "Major in Economics"
+  },
+  {
+    "name": "Electrical Engineering",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/department/electrical-and-computer-engineering/academics/ece-undergraduate-programs",
+    "description": "Major in Electrical Engineering"
+  },
+  {
+    "name": "Elementary Education",
+    "degree": "B.S.Ed.",
+    "school": "School of Education and Human Development",
+    "focusAreas": [],
+    "sourceUrl": "https://education.virginia.edu/academics/programs/elementary-education-bsed-bachelor-science-education",
+    "description": "Major in Elementary Education"
+  },
+  {
+    "name": "Engineering Science",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/undergraduate-study/future-undergrads/special-academic-programs/engineering-science",
+    "description": "Major in Engineering Science"
   },
   {
     "name": "English",
@@ -169,7 +311,88 @@
       "Medieval Studies",
       "American Literature"
     ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://english.as.virginia.edu/english-major",
+    "description": "Major in English"
+  },
+  {
+    "name": "Entrepreneurship",
+    "degree": "B.A.",
+    "school": "McIntire School of Commerce",
+    "focusAreas": [],
+    "sourceUrl": "https://www.commerce.virginia.edu/minors/entrepreneurship",
+    "description": "Major in Entrepreneurship"
+  },
+  {
+    "name": "Environmental Sciences",
+    "degree": "B.S.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://evsc.as.virginia.edu/undergraduate",
+    "description": "Major in Environmental Sciences"
+  },
+  {
+    "name": "Environmental Thought and Practice",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://etp.virginia.edu/prospective-students",
+    "description": "Major in Environmental Thought and Practice"
+  },
+  {
+    "name": "French",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://french.as.virginia.edu/undergraduate",
+    "description": "Major in French"
+  },
+  {
+    "name": "German",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://german.as.virginia.edu/index.php/undergraduate-program",
+    "description": "Major in German"
+  },
+  {
+    "name": "Global Culture and Commerce",
+    "degree": "B.S.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://anthropology.as.virginia.edu/global-culture-and-commerce-minor",
+    "description": "Major in Global Culture and Commerce"
+  },
+  {
+    "name": "Global Studies",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://globalstudies.as.virginia.edu/",
+    "description": "Major in Global Studies"
+  },
+  {
+    "name": "Global Environments and Sustainability",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://globalstudies.as.virginia.edu/global-environments-sustainability",
+    "description": "Major in Global Environments and Sustainability"
+  },
+  {
+    "name": "Health, Ethics, and Society",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://bioethics.as.virginia.edu/health-ethics-and-society-program",
+    "description": "Major in Health, Ethics, and Society"
+  },
+  {
+    "name": "Health Sciences Management",
+    "degree": "B.P.S.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://www.scps.virginia.edu/programs/bachelor-professional-studies-health-sciences-management",
+    "description": "Major in Health Sciences Management"
   },
   {
     "name": "History",
@@ -183,180 +406,425 @@
       "Military History",
       "Cultural History"
     ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://history.virginia.edu/undergradprogram",
+    "description": "Major in History"
   },
   {
-    "name": "Political Science",
-    "degree": "B.S.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [
-      "International Relations",
-      "Public Administration",
-      "Political Theory",
-      "Comparative Politics",
-      "American Government"
-    ],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Philosophy",
+    "name": "History of Art",
     "degree": "B.A.",
     "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://art.as.virginia.edu/art-history",
+    "description": "Major in History of Art"
   },
   {
-    "name": "Anthropology",
+    "name": "Interdisciplinary Studies",
     "degree": "B.A.",
     "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Sociology",
-    "degree": "B.A.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Art",
-    "degree": "B.A.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Music",
-    "degree": "B.A.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Drama",
-    "degree": "B.A.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Spanish",
-    "degree": "B.A.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "French",
-    "degree": "B.A.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "German",
-    "degree": "B.A.",
-    "school": "College of Arts & Sciences",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://www.scps.virginia.edu/programs/bachelor-interdisciplinary-studies-degree",
+    "description": "Major in Interdisciplinary Studies"
   },
   {
     "name": "Italian",
     "degree": "B.A.",
     "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://spanitalport.as.virginia.edu/italian-major",
+    "description": "Major in Italian"
   },
   {
-    "name": "Classics",
+    "name": "Japanese Language & Literature",
     "degree": "B.A.",
     "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://eastasian.as.virginia.edu/japanese",
+    "description": "Major in Japanese Language & Literature"
+  },
+  {
+    "name": "Jewish Studies",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://jewishstudies.as.virginia.edu/major",
+    "description": "Major in Jewish Studies"
+  },
+  {
+    "name": "Kinesiology",
+    "degree": "B.S.Ed.",
+    "school": "School of Education and Human Development",
+    "focusAreas": [],
+    "sourceUrl": "https://education.virginia.edu/offices-departments/kinesiology",
+    "description": "Major in Kinesiology"
+  },
+  {
+    "name": "Korean",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://eastasian.as.virginia.edu/korean",
+    "description": "Major in Korean"
+  },
+  {
+    "name": "Latin American Studies",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://latinamerican.virginia.edu/majors",
+    "description": "Major in Latin American Studies"
+  },
+  {
+    "name": "Leadership",
+    "degree": "B.A.",
+    "school": "McIntire School of Commerce",
+    "focusAreas": [],
+    "sourceUrl": "https://www.commerce.virginia.edu/minors/leadership",
+    "description": "Major in Leadership"
+  },
+  {
+    "name": "Linguistics",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://linguistics.virginia.edu/ba-program",
+    "description": "Major in Linguistics"
+  },
+  {
+    "name": "Materials Science and Engineering",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/department/materials-science-and-engineering/academics/mse-undergraduate-programs",
+    "description": "Major in Materials Science and Engineering"
+  },
+  {
+    "name": "Mathematics",
+    "degree": "B.S.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [
+      "Pure Mathematics",
+      "Applied Mathematics",
+      "Statistics",
+      "Actuarial Science",
+      "Mathematical Finance"
+    ],
+    "sourceUrl": "https://math.virginia.edu/undergraduate/",
+    "description": "Major in Mathematics"
+  },
+  {
+    "name": "Media Studies",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://mediastudies.as.virginia.edu/media-studies-major",
+    "description": "Major in Media Studies"
+  },
+  {
+    "name": "Medieval Studies",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://medievalstudies.as.virginia.edu/major",
+    "description": "Major in Medieval Studies"
+  },
+  {
+    "name": "Middle Eastern and South Asian Languages and Cultures",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://mesalc.as.virginia.edu/undergraduate-program",
+    "description": "Major in Middle Eastern and South Asian Languages and Cultures"
+  },
+  {
+    "name": "Music",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://music.virginia.edu/undergraduate",
+    "description": "Major in Music"
+  },
+  {
+    "name": "Neuroscience",
+    "degree": "B.S.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://neuroscience.as.virginia.edu/undergraduate-major",
+    "description": "Major in Neuroscience"
+  },
+  {
+    "name": "Philosophy",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://philosophy.virginia.edu/major",
+    "description": "Major in Philosophy"
+  },
+  {
+    "name": "Physics",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [
+      "Theoretical Physics",
+      "Experimental Physics",
+      "Astrophysics",
+      "Condensed Matter Physics",
+      "Medical Physics"
+    ],
+    "sourceUrl": "https://www.phys.virginia.edu/Education/undergrad.asp",
+    "description": "Major in Physics"
+  },
+  {
+    "name": "Political and Social Thought",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://pst.as.virginia.edu/major",
+    "description": "Major in Political and Social Thought"
+  },
+  {
+    "name": "Political Philosophy, Policy, and Law",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://ppl.virginia.edu/about",
+    "description": "Major in Political Philosophy, Policy, and Law"
+  },
+  {
+    "name": "Politics",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://politics.virginia.edu/undergraduate-program",
+    "description": "Major in Politics"
+  },
+  {
+    "name": "Portuguese",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://spanitalport.as.virginia.edu/portuguese-program",
+    "description": "Major in Portuguese"
+  },
+  {
+    "name": "Psychology",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [
+      "Clinical Psychology",
+      "Cognitive Psychology",
+      "Social Psychology",
+      "Developmental Psychology",
+      "Behavioral Neuroscience"
+    ],
+    "sourceUrl": "https://psychology.as.virginia.edu/undergraduate-program",
+    "description": "Major in Psychology"
+  },
+  {
+    "name": "Public Policy and Leadership",
+    "degree": "B.A.",
+    "school": "Frank Batten School of Leadership and Public Policy",
+    "focusAreas": [],
+    "sourceUrl": "https://batten.virginia.edu/academics/undergraduate-programs",
+    "description": "Major in Public Policy and Leadership"
   },
   {
     "name": "Religious Studies",
     "degree": "B.A.",
     "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://religiousstudies.as.virginia.edu/major",
+    "description": "Major in Religious Studies"
   },
   {
-    "name": "Architecture",
-    "degree": "B.Arch.",
-    "school": "School of Architecture",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Landscape Architecture",
-    "degree": "B.Arch.",
-    "school": "School of Architecture",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Urban Planning",
+    "name": "Slavic Languages and Literatures",
     "degree": "B.A.",
-    "school": "School of Architecture",
+    "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://slavic.as.virginia.edu/undergraduate-majors",
+    "description": "Major in Slavic Languages and Literatures"
   },
   {
-    "name": "Nursing",
-    "degree": "B.S.N.",
-    "school": "School of Nursing",
+    "name": "Sociology",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://sociology.as.virginia.edu/welcome-sociology",
+    "description": "Major in Sociology"
   },
   {
-    "name": "Education",
+    "name": "South Asian Languages and Literatures",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://mesalc.as.virginia.edu/language-literature-major",
+    "description": "Major in South Asian Languages and Literatures"
+  },
+  {
+    "name": "Spanish",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://spanitalport.as.virginia.edu/majoring-spanish",
+    "description": "Major in Spanish"
+  },
+  {
+    "name": "Special Education",
     "degree": "B.S.Ed.",
     "school": "School of Education and Human Development",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://education.virginia.edu/academics/programs/special-education-bsed-bachelor-science-education",
+    "description": "Major in Special Education"
   },
   {
-    "name": "Kinesiology",
-    "degree": "B.A.",
+    "name": "Speech Communication Disorders",
+    "degree": "B.S.Ed.",
     "school": "School of Education and Human Development",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Human Services",
-    "degree": "B.A.",
-    "school": "School of Education and Human Development",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Public Policy",
-    "degree": "B.A.",
-    "school": "Frank Batten School of Leadership and Public Policy",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Leadership Studies",
-    "degree": "B.A.",
-    "school": "Frank Batten School of Leadership and Public Policy",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
-  },
-  {
-    "name": "Data Science",
-    "degree": "B.S.",
-    "school": "School of Data Science",
-    "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://education.virginia.edu/academics/programs/speech-communication-disorders-bsed-bachelor-science-education",
+    "description": "Major in Speech Communication Disorders"
   },
   {
     "name": "Statistics",
     "degree": "B.A.",
-    "school": "School of Data Science",
+    "school": "College of Arts & Sciences",
     "focusAreas": [],
-    "sourceUrl": "https://www.virginia.edu/majors-minors/"
+    "sourceUrl": "https://statistics.as.virginia.edu/selecting-majorminor",
+    "description": "Major in Statistics"
+  },
+  {
+    "name": "Studio Art",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://art.as.virginia.edu/studio-art",
+    "description": "Major in Studio Art"
+  },
+  {
+    "name": "Systems Engineering",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/department/systems-and-information-engineering/academics/sie-undergraduate-programs",
+    "description": "Major in Systems Engineering"
+  },
+  {
+    "name": "Urban and Environmental Planning",
+    "degree": "B.A.",
+    "school": "School of Architecture",
+    "focusAreas": [],
+    "sourceUrl": "https://www.arch.virginia.edu/programs/urban-environmental-planning",
+    "description": "Major in Urban and Environmental Planning"
+  },
+  {
+    "name": "Women, Gender & Sexuality",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://wgs.as.virginia.edu/overview",
+    "description": "Major in Women, Gender & Sexuality"
+  },
+  {
+    "name": "Youth & Social Innovation",
+    "degree": "B.S.Ed.",
+    "school": "School of Education and Human Development",
+    "focusAreas": [],
+    "sourceUrl": "https://education.virginia.edu/academics/programs/youth-social-innovation-bsed-bachelor-science-education",
+    "description": "Major in Youth & Social Innovation"
+  },
+  {
+    "name": "Accounting",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://www.scps.virginia.edu/programs/accounting-certificate",
+    "description": "Major in Accounting"
+  },
+  {
+    "name": "Certified Financial Planning",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://www.scps.virginia.edu/programs/certified-financial-planning-certificate",
+    "description": "Major in Certified Financial Planning"
+  },
+  {
+    "name": "Cloud Computing",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://www.scps.virginia.edu/programs/cloud-computing-certificate",
+    "description": "Major in Cloud Computing"
+  },
+  {
+    "name": "Cybersecurity Analysis",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://www.scps.virginia.edu/programs/undergraduate-cybersecurity-analysis-certificate",
+    "description": "Major in Cybersecurity Analysis"
+  },
+  {
+    "name": "Information Technology",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://www.scps.virginia.edu/programs/information-technology-certificate",
+    "description": "Major in Information Technology"
+  },
+  {
+    "name": "National Criminal Justice Command College",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://www.scps.virginia.edu/programs/national-criminal-justice-command-college",
+    "description": "Major in National Criminal Justice Command College"
+  },
+  {
+    "name": "Air Force ROTC",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://afrotc.virginia.edu/",
+    "description": "Major in Air Force ROTC"
+  },
+  {
+    "name": "Applied Mathematics Program",
+    "degree": "B.S.",
+    "school": "School of Engineering and Applied Science",
+    "focusAreas": [],
+    "sourceUrl": "https://engineering.virginia.edu/offices-programs/applied-mathematics",
+    "description": "Major in Applied Mathematics Program"
+  },
+  {
+    "name": "Army ROTC",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://arotc.virginia.edu/",
+    "description": "Major in Army ROTC"
+  },
+  {
+    "name": "Interdisciplinary Major Program",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://college.as.virginia.edu/self-designed-interdisciplinary-major-program",
+    "description": "Major in Interdisciplinary Major Program"
+  },
+  {
+    "name": "Lifetime Physical Activity Options",
+    "degree": "B.A.",
+    "school": "School of Education and Human Development",
+    "focusAreas": [],
+    "sourceUrl": "https://education.virginia.edu/offices-departments/kinesiology",
+    "description": "Major in Lifetime Physical Activity Options"
+  },
+  {
+    "name": "Naval ROTC",
+    "degree": "B.A.",
+    "school": "College of Arts & Sciences",
+    "focusAreas": [],
+    "sourceUrl": "https://nrotc.virginia.edu/",
+    "description": "Major in Naval ROTC"
   }
 ]

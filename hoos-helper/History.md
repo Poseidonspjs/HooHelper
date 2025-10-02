@@ -341,3 +341,150 @@
 - Generate updated `data/courses.json` and `data/raw/raw-courses.json`
 
 **Status:** ✅ Complete - Lou's List scraper implemented and tested, full department scraping in progress
+
+## 2025-10-02 - Real UVA Majors/Minors Scraper Implementation
+
+**What was changed:**
+- Completely reimplemented the majors scraper in `src/app/scrapers/majors_scraper.tsx` to scrape real program data from UVA Majors & Minors page instead of using hardcoded data.
+- Implemented HTML parsing for the UVA majors/minors listing page.
+- Added helper functions for school inference from URLs and major vs minor detection.
+- Enhanced filtering logic to exclude navigation, footer, and utility links.
+
+**Why:**
+- To fulfill PRD Section 5.6 Data Ingestion requirement for real major/minor data from UVA.
+- Replace hardcoded/generated major data with actual UVA program information.
+- Enable accurate academic planning with real program requirements and focus areas.
+
+**Files affected:**
+- `src/app/scrapers/majors_scraper.tsx` - Complete rewrite of scraping logic
+
+**Implementation details:**
+- **Data Source**: UVA Majors & Minors page (https://www.virginia.edu/majors-minors/)
+- **Scraping Approach**: HTML list parsing using Cheerio
+  - Parses all `li a` elements for program links
+  - Filters out navigation, footer, and utility links using comprehensive URL and name patterns
+  - Distinguishes between majors and minors based on program names
+- **Key Functions**:
+  - `inferSchoolFromUrl()`: Infers UVA school from URL domain patterns (e.g., engineering.virginia.edu → SEAS)
+  - `isMinorProgram()`: Detects if a program is a minor based on naming conventions
+  - Updated `inferDegreeAndSchool()`: Enhanced to use URL parsing and return `isMajor` boolean
+  - Updated `scrapeMajorsFromUVA()`: Scrapes real HTML instead of generating hardcoded data
+- **Filtering Logic**: Comprehensive exclusion patterns for:
+  - Navigation links (tuition, life-uva, visit, mission, facts-figures, etc.)
+  - Utility links (hr.virginia.edu, search.people.virginia.edu, accessibility, privacy, FOIA, etc.)
+  - Non-program academic links (iso.virginia.edu, libraries, calendars, seminars)
+  - Certificate programs (unless in /programs/ path)
+  - Generic ROTC links (preserves specific Air Force, Army, Naval ROTC programs)
+- **Data Extraction**:
+  - Program Name: From anchor text in list items
+  - URL: From href attribute (converted to full URL if relative)
+  - School: Inferred from URL domain patterns or program name
+  - Degree: Inferred from school (B.A. for College, B.S. for Engineering, B.S.C. for Commerce, etc.)
+  - Major vs Minor: Detected from program name (e.g., "Minor in X" → minor)
+
+**Testing Results:**
+- ✅ Successfully scraped 87 majors and 15 minors from UVA page
+- ✅ Program data includes legitimate academic programs (e.g., Computer Science, Biology, Economics)
+- ✅ Navigation/footer links successfully filtered out (Jobs, Directory, International Studies office)
+- ✅ School inference working correctly (engineering.virginia.edu → SEAS, commerce.virginia.edu → McIntire)
+- ✅ Major vs minor detection working (programs with "minor" in name correctly classified)
+
+**Challenges and Solutions:**
+- **Challenge 1**: Initial generic selectors (`.content-area ul li a`, `#content ul li a`) didn't match page structure
+  - **Solution**: Used generic `$('li a')` selector with comprehensive URL-based filtering
+- **Challenge 2**: Scraper captured 132 items including navigation/footer links (Jobs, Directory, Privacy, etc.)
+  - **Solution**: Added extensive filtering logic checking both URL patterns and program names to exclude non-academic content
+- **Challenge 3**: Programs like "International Studies" were office links, not academic majors
+  - **Solution**: Added specific domain filters (e.g., `iso.virginia.edu`) to exclude administrative offices
+
+**Referenced PRD sections:**
+- Section 5.6 Data Ingestion & Normalization (primary requirement)
+- Section 5.3 Knowledge Base (major catalog for RAG pipeline)
+- Section 3 Tech Stack (Cheerio for HTML parsing)
+
+**Next Steps:**
+- Enhance focus areas mapping with actual program concentrations
+- Add scraping for detailed program requirements from individual program pages
+- Integrate with courses data for prerequisite validation
+
+**Status:** ✅ Complete - UVA majors/minors scraper implemented and tested, 87 majors and 15 minors successfully scraped
+
+## 2025-10-02 - Majors Scraper Bug Fixes: Degree Normalization and Multi-Degree Programs
+
+**What was changed:**
+- Fixed degree normalization bug where B.S. degrees were incorrectly converted to B.A.
+- Added support for multi-degree programs (e.g., Computer Science offering both B.A. and B.S.)
+- Implemented degree suffix parsing to extract clean program names
+- Fixed navigation link filter that was excluding Computer Science
+
+**Why:**
+- Raw data had correct B.S. degrees but normalizer was converting them to B.A., causing all SEAS majors to be incorrectly labeled
+- Computer Science program offers both B.A. and B.S. degrees but wasn't being scraped at all
+- Programs with degree suffixes (e.g., "Data Science, B.S.") had unclean names
+- URL filter was too strict and excluded legitimate academic programs
+
+**Files affected:**
+- `src/app/scrapers/utils/normalizer.ts` - Fixed degree type mapping
+- `src/app/scrapers/majors_scraper.tsx` - Added helper functions and updated parsing logic
+
+**Issues Fixed:**
+
+1. **Degree Normalization Bug (CRITICAL)**
+   - **Problem**: `normalizeDegreeType()` didn't handle already-formatted degrees like "B.S." with periods
+   - **Root Cause**: Degree map only had "bs" (no periods), so "B.S." → "b.s." → no match → default to "B.A."
+   - **Fix**: Added degree types with periods to the map: `'b.s.': 'B.S.'`, `'b.a.': 'B.A.'`, `'b.s.ed.': 'B.S.Ed.'`, etc.
+   - **Impact**: All 10+ SEAS majors now correctly labeled as B.S. instead of B.A.
+
+2. **Computer Science Missing (CRITICAL)**
+   - **Problem**: "Computer Science, B.A. and B.S." program was not being scraped
+   - **Root Causes**:
+     - a) URL filter `/academics/` && !`/programs` was too strict (CS URL has "cs-undergraduate-programs" not "/programs")
+     - b) No logic to handle programs offering multiple degrees on one link
+   - **Fixes**:
+     - Changed URL filter from `/programs` to `programs` (without leading slash) to match "cs-undergraduate-programs"
+     - Created `parseMultiDegreeProgram()` function to detect and split multi-degree patterns
+     - Creates separate major entries for each degree (CS B.A. and CS B.S.)
+   - **Impact**: Computer Science now appears as 2 separate entries (B.A. and B.S.)
+
+3. **Degree Suffixes in Program Names**
+   - **Problem**: Programs like "Data Science, B.S." and "Kinesiology, B.S.Ed." had degree suffixes in their names
+   - **Fix**: Created `parseProgramNameAndDegree()` function to extract and remove degree suffixes
+   - **Regex**: `/,\s*(B\.[A-Za-z]+\.(?:[A-Za-z]+\.)?)\s*$/` matches ", B.S.", ", B.S.Ed.", ", B.Arch.", etc.
+   - **Impact**: 8+ programs now have clean names (e.g., "Early Childhood Education" instead of "Early Childhood Education, B.S.Ed.")
+
+**Implementation Details:**
+
+Added helper functions in `majors_scraper.tsx`:
+```typescript
+// Extract degree suffix and clean program name
+function parseProgramNameAndDegree(programName: string): { name: string; degree: string | null }
+
+// Parse multi-degree programs into separate entries
+function parseMultiDegreeProgram(programName: string): { name: string; degree: string }[] | null
+```
+
+Updated scraping logic to:
+1. Check for multi-degree programs first → create multiple entries if found
+2. Parse single-degree programs → extract degree suffix if present
+3. Use explicit degree from name if available, otherwise infer from school/name
+
+**Testing Results:**
+- ✅ Computer Science: 2 separate entries (B.A. and B.S.) successfully scraped
+- ✅ SEAS degrees: All correctly labeled as B.S. (Applied Math, Biomedical Eng, Chemical Eng, Civil Eng, Computer Eng, Electrical Eng, Engineering Science, Materials Science, Mechanical Eng, Systems Eng)
+- ✅ Education degrees: All correctly labeled as B.S.Ed. with clean names (Early Childhood Education, Elementary Education, Kinesiology, Special Education, Speech Communication Disorders, Youth & Social Innovation)
+- ✅ Total majors: Increased from 87 to 94 (added CS B.A., CS B.S., plus other previously filtered programs)
+- ✅ Data Science: Correctly labeled as B.S. with clean name
+- ✅ Behavioral Neuroscience: Correctly labeled as B.S. with clean name
+
+**Before → After:**
+- Applied Mathematics: B.A. → B.S. ✅
+- Computer Science: Missing → B.A. and B.S. (2 entries) ✅
+- Early Childhood Education, B.S.Ed.: B.S. → B.S.Ed. with clean name "Early Childhood Education" ✅
+- Data Science, B.S.: B.S. → B.S. with clean name "Data Science" ✅
+- All SEAS majors: B.A. → B.S. ✅
+
+**Referenced PRD sections:**
+- Section 5.6 Data Ingestion & Normalization
+- Section 11 Development Process (History tracking)
+
+**Status:** ✅ Complete - All normalization bugs fixed, Computer Science scraped, 94 majors successfully processed
