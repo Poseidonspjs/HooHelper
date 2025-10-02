@@ -11,7 +11,10 @@ import {
   createErrorResult,
   logProgress,
   defaultScraperConfig,
-  mapDepartmentToSchool
+  mapDepartmentToSchool,
+  getCourseLevel,
+  parsePrerequisites,
+  standardizeCourseId
 } from './utils/scraper-utils';
 import { normalizeCourses, deduplicateCourses } from './utils/normalizer';
 import { validateCourses } from './utils/data-validator';
@@ -20,8 +23,8 @@ import * as path from 'path';
 
 const COURSES_CONFIG: ScraperConfig = {
   ...defaultScraperConfig,
-  baseUrl: 'https://louslist.org',
-  rateLimit: 3000, // 3 second delay between requests (be respectful)
+  baseUrl: 'https://louslist.org/CC',
+  rateLimit: 2000, // 2 second delay between requests (be respectful)
   retryAttempts: 3,
   timeout: 45000
 };
@@ -351,21 +354,62 @@ const SAMPLE_COURSES: RawCourse[] = [
   }
 ];
 
-export async function scrapeCoursesFromLousList(): Promise<ScrapingResult<RawCourse>> {
+export async function scrapeCoursesFromLousList(testMode: boolean = false): Promise<ScrapingResult<RawCourse>> {
   try {
-    logProgress('Starting UVA courses scraping from Lou\'s List');
+    logProgress(`Starting UVA courses scraping from Lou's List Course Catalog`);
 
-    // For MVP, we'll use the sample course data
-    // In a production environment, this would scrape from louslist.org
-    const rawCourses: RawCourse[] = [...SAMPLE_COURSES];
+    const rawCourses: RawCourse[] = [];
+    const errors: string[] = [];
+    const departmentList = Object.keys(DEPARTMENTS);
 
-    // Simulate scraping additional courses from different departments
-    const additionalCourses = generateAdditionalCourses();
-    rawCourses.push(...additionalCourses);
+    // For testing, only scrape CS department
+    const departmentsToScrape = testMode ? ['CS'] : departmentList;
 
-    logProgress(`Generated ${rawCourses.length} sample courses for testing`);
+    logProgress(`Scraping ${departmentsToScrape.length} departments: ${departmentsToScrape.join(', ')}`);
 
-    return createSuccessResult(rawCourses, `Successfully generated ${rawCourses.length} courses`);
+    // Scrape each department
+    for (const deptCode of departmentsToScrape) {
+      try {
+        logProgress(`\n--- Starting ${deptCode} (${DEPARTMENTS[deptCode as keyof typeof DEPARTMENTS]}) ---`);
+
+        const deptCourses = await scrapeDepartmentCourses(deptCode);
+
+        if (deptCourses.length > 0) {
+          rawCourses.push(...deptCourses);
+          logProgress(`✓ ${deptCode}: Successfully scraped ${deptCourses.length} courses`);
+        } else {
+          const warning = `${deptCode}: No courses found`;
+          logProgress(`⚠ ${warning}`);
+          errors.push(warning);
+        }
+
+        // Rate limiting between departments
+        if (departmentsToScrape.indexOf(deptCode) < departmentsToScrape.length - 1) {
+          await new Promise(resolve => setTimeout(resolve, COURSES_CONFIG.rateLimit));
+        }
+
+      } catch (deptError) {
+        const errorMsg = `${deptCode}: ${deptError instanceof Error ? deptError.message : 'Unknown error'}`;
+        console.error(`Error scraping ${deptCode}:`, deptError);
+        errors.push(errorMsg);
+      }
+    }
+
+    logProgress(`\n=== Scraping Complete ===`);
+    logProgress(`Total courses scraped: ${rawCourses.length}`);
+    logProgress(`Departments with errors: ${errors.length}`);
+
+    if (rawCourses.length === 0) {
+      return createErrorResult([
+        'No courses were scraped from any department',
+        ...errors
+      ]);
+    }
+
+    return createSuccessResult(
+      rawCourses,
+      `Successfully scraped ${rawCourses.length} courses from ${departmentsToScrape.length - errors.length}/${departmentsToScrape.length} departments`
+    );
 
   } catch (error) {
     const errorMessage = `Failed to scrape UVA courses: ${error instanceof Error ? error.message : 'Unknown error'}`;
@@ -479,12 +523,151 @@ function generateAdditionalCourses(): RawCourse[] {
   return additionalCourses;
 }
 
-// Scrape course details from specific department (for future implementation)
+// Helper function to build Lou's List catalog URL for a department
+function buildLousListUrl(department: string): string {
+  const baseUrl = COURSES_CONFIG.baseUrl;
+  return `${baseUrl}/${department}.html`;
+}
+
+// Helper function to parse course HTML element from Lou's List
+function parseLousListCourse($: cheerio.CheerioAPI, element: cheerio.Element, department: string): RawCourse | null {
+  try {
+    const $elem = $(element);
+    const text = $elem.text();
+
+    // Extract course number (e.g., "CS 1110")
+    const courseNumMatch = text.match(/([A-Z]{2,4})\s*(\d{4}[A-Z]?)/);
+    if (!courseNumMatch) return null;
+
+    const courseId = `${courseNumMatch[1]} ${courseNumMatch[2]}`;
+
+    // Extract course title (usually after the course number)
+    const titleMatch = text.match(/\d{4}[A-Z]?\s*[-–—]\s*([^(]+)/);
+    const title = titleMatch ? cleanText(titleMatch[1]) : 'Untitled Course';
+
+    // Extract credits (look for patterns like "(3)" or "3 credits")
+    const creditsMatch = text.match(/\((\d+)\)|(\d+)\s*credit/i);
+    const credits = creditsMatch ? parseInt(creditsMatch[1] || creditsMatch[2]) : 3;
+
+    // Extract description (usually longer text blocks)
+    let description = '';
+    const descMatch = text.match(/[-–—]\s*([^.]+(?:\.[^.]+){0,3})/);
+    if (descMatch) {
+      description = cleanText(descMatch[1]);
+    }
+
+    // Try to find prerequisites in the text
+    const prereqMatch = text.match(/prerequisite[s]?:?\s*([^.]+)/i) ||
+                       text.match(/require[sd]?:?\s*([^.]+)/i);
+    const prereqs = prereqMatch ? parsePrerequisites(prereqMatch[1]) : [];
+
+    // Determine school and level
+    const school = mapDepartmentToSchool(department);
+    const level = getCourseLevel(courseId);
+
+    return {
+      id: courseId,
+      title,
+      description: description || 'No description available.',
+      credits,
+      prereqs,
+      semestersOffered: ['Fall', 'Spring'], // Default
+      fulfills: [],
+      department,
+      level,
+      school
+    };
+  } catch (error) {
+    console.error('Error parsing course element:', error);
+    return null;
+  }
+}
+
+// Scrape course details from specific department using Lou's List HTML
 async function scrapeDepartmentCourses(department: string): Promise<RawCourse[]> {
-  // This would implement the actual scraping logic for Lou's List
-  // For now, return empty array as this is complex and site-specific
-  logProgress(`Scraping ${department} courses from Lou's List`);
-  return [];
+  const courses: RawCourse[] = [];
+
+  logProgress(`Scraping ${department} courses from Lou's List Course Catalog`);
+
+  try {
+    const url = buildLousListUrl(department);
+    const html = await fetchWithRetry(url, COURSES_CONFIG);
+    const $ = parseHtml(html);
+
+    // Lou's List uses a table structure with alternating rows:
+    // Row 1: <td class="CourseNum">DEPT 1234</td><td class="CourseName">Title (Credits)</td>
+    // Row 2: <td class="Offered">...</td><td class="CourseDescription">Description...</td>
+
+    const courseNumRows = $('td.CourseNum').toArray();
+
+    for (const numCell of courseNumRows) {
+      try {
+        const $numCell = $(numCell);
+        const courseNumText = cleanText($numCell.text());
+
+        // Get the course name cell (next sibling)
+        const $nameCell = $numCell.next('td.CourseName');
+        const courseNameText = cleanText($nameCell.text());
+
+        // Extract course ID
+        const courseId = standardizeCourseId(courseNumText);
+
+        // Extract title and credits from course name
+        // Format: "Course Title (3)" or "Course Title"
+        const titleMatch = courseNameText.match(/^(.+?)\s*\((\d+)\)\s*$/);
+        let title = titleMatch ? cleanText(titleMatch[1]) : courseNameText;
+        const credits = titleMatch ? parseInt(titleMatch[2]) : 3;
+
+        // Get the description row (next table row)
+        const $descRow = $numCell.parent().next('tr');
+        const $descCell = $descRow.find('td.CourseDescription');
+        let descriptionText = $descCell.text();
+
+        // Remove "Course was offered..." section
+        descriptionText = descriptionText.split('Course was offered')[0];
+        const description = cleanText(descriptionText) || 'No description available.';
+
+        // Extract prerequisites from description
+        const prereqMatch = description.match(/prerequisite[s]?:?\s*([^.]+)/i) ||
+                           description.match(/prereq[s]?:?\s*([^.]+)/i);
+        const prereqs = prereqMatch ? parsePrerequisites(prereqMatch[1]) : [];
+
+        // Check for duplicates
+        const isDuplicate = courses.some(c => c.id === courseId);
+        if (!isDuplicate && courseId.startsWith(department)) {
+          courses.push({
+            id: courseId,
+            title,
+            description,
+            credits,
+            prereqs,
+            semestersOffered: ['Fall', 'Spring'],
+            fulfills: [],
+            department,
+            level: getCourseLevel(courseId),
+            school: mapDepartmentToSchool(department)
+          });
+        }
+
+      } catch (parseError) {
+        // Skip this course if parsing fails
+        continue;
+      }
+    }
+
+    logProgress(`Completed ${department}: ${courses.length} courses scraped`);
+    return courses;
+
+  } catch (error) {
+    // Check if it's a 404 (page doesn't exist for this department)
+    if (error instanceof Error && error.message.includes('404')) {
+      logProgress(`${department}: Course catalog page not found (404)`);
+      return [];
+    }
+
+    console.error(`Error scraping ${department}:`, error);
+    return courses; // Return whatever we managed to scrape
+  }
 }
 
 // Main function to scrape, normalize, and save courses data
