@@ -184,6 +184,32 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
 
+  const [typedText, setTypedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const tagline = "Your UVA Course Planning Assistant";
+  const typingSpeed = 150;
+  const deletingSpeed = 100;
+  const pauseTime = 2000;
+
+  useEffect(() => {
+    const handleTyping = () => {
+      if (!isDeleting) {
+        setTypedText(tagline.slice(0, typedText.length + 1));
+        if (typedText === tagline) {
+          setTimeout(() => setIsDeleting(true), pauseTime);
+        }
+      } else {
+        setTypedText(tagline.slice(0, typedText.length - 1));
+        if (typedText === '') {
+          setTimeout(() => setIsDeleting(false), typingSpeed);
+        }
+      }
+    };
+
+    const timeout = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
+    return () => clearTimeout(timeout);
+  }, [typedText, isDeleting]);
+
   // Sample data - in a real app, these would come from API endpoints
   const school = [
     'School of Engineering and Applied Science',
@@ -349,15 +375,19 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-orange-50 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">Hoo&apos;s Helper</h1>
-          <p className="text-xl text-gray-600">Your UVA Course Planning Assistant</p>
-          <p className="text-sm text-gray-500 mt-2">Get personalized four-year academic plans</p>
-        </header>
+    <div className="min-h-screen bg-light-blue-400 py-8 px-4 flex items-center">
+      {/* Tagline Section */}
+      <div className="w-1/2 pr-8">
+        <p className="text-4xl font-bold text-white mb-2">
+          {typedText}
+          <span className="animate-blink">|</span>
+        </p>
+        <p className="text-2xl text-white">Get personalized four-year academic plans</p>
+      </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+      {/* Form Section */}
+      <div className="w-1/2 bg-white rounded-lg shadow-lg p-8 space-y-6">
+        <form onSubmit={handleSubmit}>
           {/* School Selection */}
           <Dropdown
             label="Intended School *"
@@ -450,10 +480,6 @@ export default function Home() {
             </div>
           )}
         </form>
-
-        <footer className="text-center text-gray-500 text-sm mt-8">
-          <p>Powered by AI • University of Virginia • Hoo&apos;s Helper MVP</p>
-        </footer>
       </div>
     </div>
   );
