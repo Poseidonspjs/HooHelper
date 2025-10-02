@@ -184,57 +184,75 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
 
-  const [typedText, setTypedText] = useState("");
-  const [subtitleText, setSubtitleText] = useState("");
-  const [animationPhase, setAnimationPhase] = useState("typing-tagline");
+  const [typedTagline, setTypedTagline] = useState(""); // For the main tagline
+  const [typedSubtitle, setTypedSubtitle] = useState(""); // For the current subtitle
+  const [animationPhase, setAnimationPhase] = useState<
+    "typing-tagline" | "waiting-for-subtitle-start" | "typing-subtitle" | "deleting-subtitle"
+  >("typing-tagline");
+  const [currentSubtitleIndex, setCurrentSubtitleIndex] = useState(0);
 
   const tagline = "Your UVA Course Planning Assistant";
-  const subtitle = "Get Help With Your 4 Year Academic Plan";
+  const subtitles = [
+    "Get Help With Your 4 Year Academic Plan",
+    "Craft Your Ideal UVA Journey",
+    "Get Personalized Course Recommendations",
+    "Navigate Your Degree Requirements",
+    "Optimize Your Course Load",
+    "Plan for Study Abroad and Internships",
+    "Maximize Your UVA Experience"
+  ];
   const typingSpeed = 150;
   const deletingSpeed = 100;
-  const pauseTime = 2000;
+  const pauseTimeAfterTagline = 1500; // Pause after main tagline is typed
+  const pauseTimeAfterSubtitle = 1000; // Pause after subtitle is typed
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
 
     const handleAnimation = () => {
       switch (animationPhase) {
-        case "typing-tagline":
-          if (typedText.length < tagline.length) {
-            setTypedText(tagline.slice(0, typedText.length + 1));
+        case "typing-tagline": // Types the main tagline once
+          if (typedTagline.length < tagline.length) {
+            setTypedTagline(tagline.slice(0, typedTagline.length + 1));
           } else {
-            timeoutId = setTimeout(() => setAnimationPhase("typing-subtitle"), pauseTime / 2);
+            timeoutId = setTimeout(() => setAnimationPhase("waiting-for-subtitle-start"), pauseTimeAfterTagline);
           }
           break;
-        case "typing-subtitle":
-          if (subtitleText.length < subtitle.length) {
-            setSubtitleText(subtitle.slice(0, subtitleText.length + 1));
+
+        case "waiting-for-subtitle-start": // Brief pause before first subtitle starts
+          setAnimationPhase("typing-subtitle");
+          break;
+
+        case "typing-subtitle": // Types the current subtitle
+          const currentSubtitle = subtitles[currentSubtitleIndex];
+          if (typedSubtitle.length < currentSubtitle.length) {
+            setTypedSubtitle(currentSubtitle.slice(0, typedSubtitle.length + 1));
           } else {
-            timeoutId = setTimeout(() => setAnimationPhase("deleting-subtitle"), pauseTime);
+            timeoutId = setTimeout(() => setAnimationPhase("deleting-subtitle"), pauseTimeAfterSubtitle);
           }
           break;
-        case "deleting-subtitle":
-          if (subtitleText.length > 0) {
-            setSubtitleText(subtitleText.slice(0, subtitleText.length - 1));
+
+        case "deleting-subtitle": // Deletes the current subtitle
+          if (typedSubtitle.length > 0) {
+            setTypedSubtitle(typedSubtitle.slice(0, typedSubtitle.length - 1));
           } else {
-            setAnimationPhase("deleting-tagline");
-          }
-          break;
-        case "deleting-tagline":
-          if (typedText.length > 0) {
-            setTypedText(typedText.slice(0, typedText.length - 1));
-          } else {
-            timeoutId = setTimeout(() => setAnimationPhase("typing-tagline"), typingSpeed);
+            // Subtitle deleted, move to next one
+            setCurrentSubtitleIndex((prevIndex) => (prevIndex + 1) % subtitles.length);
+            setAnimationPhase("typing-subtitle"); // Start typing the next subtitle
           }
           break;
       }
     }
 
     const speed = animationPhase.includes("deleting") ? deletingSpeed : typingSpeed;
-    timeoutId = setTimeout(handleAnimation, speed);
+    if (animationPhase === "waiting-for-subtitle-start") {
+        timeoutId = setTimeout(handleAnimation, 0); // Immediate transition
+    } else {
+        timeoutId = setTimeout(handleAnimation, speed);
+    }
 
     return () => clearTimeout(timeoutId);
-  }, [typedText, subtitleText, animationPhase, tagline, subtitle]);
+  }, [typedTagline, typedSubtitle, animationPhase, currentSubtitleIndex, tagline, subtitles]);
 
   // Sample data - in a real app, these would come from API endpoints
   const school = [
@@ -405,11 +423,11 @@ export default function Home() {
       {/* Tagline Section */}
       <div className="w-1/2 pr-8 h-24">
         <h1 className="text-4xl font-bold text-white mb-4 h-12">
-          {typedText}
-          {(animationPhase === "typing-tagline" || animationPhase === "deleting-tagline") && <span className="animate-blink text-orange-400">|</span>}
+          {typedTagline}
+          {(animationPhase === "typing-tagline") && <span className="animate-blink text-orange-400">|</span>}
         </h1>
-        <p className="text-2xl font-semibold text-white h-8">
-          {subtitleText}{(animationPhase === "typing-subtitle" || animationPhase === "deleting-subtitle") && <span className="animate-blink text-orange-400">|</span>}
+        <p className="text-2xl font-semibold text-orange-400 h-8">
+          {typedSubtitle}{(animationPhase === "typing-subtitle" || animationPhase === "deleting-subtitle") && <span className="animate-blink text-white">|</span>}
         </p>
       </div>
 

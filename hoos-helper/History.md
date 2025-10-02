@@ -185,7 +185,7 @@
 
 **Status:** ✅ Complete - UVA data scrapers implemented and tested, JSON datasets ready for RAG integration
 
-## 2025-10-03 - Landing Page Typewriter Animation Enhancement
+## 2025-10-02 - Landing Page Typewriter Animation Enhancement
 
 **What was changed:**
 - Refactored and enhanced the typewriter-style animation for the tagline and subtitle on the main landing page (`src/app/page.tsx`).
@@ -213,6 +213,41 @@
 - Section 11 Development Process / Constraints (History tracking)
 
 **Status:** ✅ Complete - The typewriter animation is fully implemented and cycles continuously as requested.
+
+## 2025-10-02 - Landing Page Typewriter Animation - Subtitle Cycling and Styling
+
+**What was changed:**
+- Enhanced the typewriter-style animation on the main landing page (`src/app/page.tsx`) to implement a continuous subtitle cycling effect.
+- The main tagline now types out once and remains static.
+- Multiple subtitle messages are introduced and cycle through typing and deleting animations.
+- Subtitle text color is set to orange, and its blinking cursor color is set to white, inverting the color scheme of the main tagline.
+
+**Why:**
+- To create a more dynamic and engaging user experience on the landing page.
+- To effectively communicate multiple key messages about the application's purpose.
+- To introduce visual variety and highlight the subtitle with a distinct color scheme.
+
+**Files affected:**
+- `src/app/page.tsx` - Modified the animation logic within the `Home` component:
+  - Replaced `typedText` with `typedTagline` and `typedSubtitle` for clarity.
+  - Updated `animationPhase` state to manage a new sequence: `typing-tagline` (once), `waiting-for-subtitle-start`, `typing-subtitle`, `deleting-subtitle`.
+  - Added a `subtitles` array to store multiple messages.
+  - Implemented `currentSubtitleIndex` to cycle through subtitle messages.
+  - Adjusted `useEffect` dependencies and timing constants (`pauseTimeAfterTagline`, `pauseTimeAfterSubtitle`).
+  - Modified JSX to apply `text-orange-400` to the subtitle text and `text-white` to the subtitle cursor, while keeping the main tagline `text-white` with an `text-orange-400` cursor.
+  - Adjusted conditional rendering of cursors based on the `animationPhase`.
+
+**Implementation details:**
+- The `animationPhase` state machine now ensures the main tagline types once and then stops.
+- A new `waiting-for-subtitle-start` phase provides a brief pause before the subtitle animation begins.
+- The subtitle animation (`typing-subtitle` and `deleting-subtitle`) now loops indefinitely through the `subtitles` array.
+- Cursor visibility and color are dynamically controlled based on which text element is currently animating.
+
+**Referenced PRD sections:**
+- Section 5.5 UI Pages (Further enhancement of the landing page `/`)
+- Section 11 Development Process / Constraints (History tracking)
+
+**Status:** ✅ Complete - Typewriter animation now cycles through multiple, distinctively styled subtitles.
 
 ## 2025-09-26 - Dropdown Close on Outside Click
 
