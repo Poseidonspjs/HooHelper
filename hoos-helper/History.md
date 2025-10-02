@@ -185,6 +185,35 @@
 
 **Status:** ✅ Complete - UVA data scrapers implemented and tested, JSON datasets ready for RAG integration
 
+## 2025-10-03 - Landing Page Typewriter Animation Enhancement
+
+**What was changed:**
+- Refactored and enhanced the typewriter-style animation for the tagline and subtitle on the main landing page (`src/app/page.tsx`).
+- The animation now follows a complete, continuous loop:
+  1. Main tagline types out.
+  2. Subtitle types out.
+  3. Subtitle deletes.
+  4. Main tagline deletes.
+  5. Cycle repeats.
+
+**Why:**
+- To fix a logic bug in the initial implementation where the animation would not restart correctly after deleting.
+- To improve the visual appeal and user engagement of the landing page with a more dynamic and polished animation sequence.
+
+**Files affected:**
+- `src/app/page.tsx` - Replaced multiple `useEffect` hooks and state flags with a single, more robust state machine (`animationPhase`) to manage the entire animation lifecycle.
+
+**Implementation details:**
+- Implemented a state machine using the `animationPhase` state variable to control the sequence: `typing-tagline`, `typing-subtitle`, `deleting-subtitle`, `deleting-tagline`.
+- Consolidated all animation logic into a single `useEffect` hook for better readability and maintenance.
+- The blinking cursor is now conditionally rendered for only the currently active text element (either tagline or subtitle), improving visual clarity.
+
+**Referenced PRD sections:**
+- Section 5.5 UI Pages (Enhancement for the landing page `/`)
+- Section 11 Development Process / Constraints (History tracking)
+
+**Status:** ✅ Complete - The typewriter animation is fully implemented and cycles continuously as requested.
+
 ## 2025-09-26 - Dropdown Close on Outside Click
 
 **What was changed:**

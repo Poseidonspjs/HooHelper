@@ -173,42 +173,68 @@ interface FormErrors {
 export default function Home() {
   const [formData, setFormData] = useState<FormData>({
     school: '',
-    major: '',
-    focusArea: '',
-    entryYear: '',
+    major: "",
+    focusArea: "",
+    entryYear: "",
     apCredits: [],
-    additionalDetails: ''
+    additionalDetails: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
 
-  const [typedText, setTypedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  const [subtitleText, setSubtitleText] = useState("");
+  const [animationPhase, setAnimationPhase] = useState("typing-tagline");
+
   const tagline = "Your UVA Course Planning Assistant";
+  const subtitle = "Get Help With Your 4 Year Academic Plan";
   const typingSpeed = 150;
   const deletingSpeed = 100;
   const pauseTime = 2000;
 
   useEffect(() => {
-    const handleTyping = () => {
-      if (!isDeleting) {
-        setTypedText(tagline.slice(0, typedText.length + 1));
-        if (typedText === tagline) {
-          setTimeout(() => setIsDeleting(true), pauseTime);
-        }
-      } else {
-        setTypedText(tagline.slice(0, typedText.length - 1));
-        if (typedText === '') {
-          setTimeout(() => setIsDeleting(false), typingSpeed);
-        }
-      }
-    };
+    let timeoutId: NodeJS.Timeout;
 
-    const timeout = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
-    return () => clearTimeout(timeout);
-  }, [typedText, isDeleting]);
+    const handleAnimation = () => {
+      switch (animationPhase) {
+        case "typing-tagline":
+          if (typedText.length < tagline.length) {
+            setTypedText(tagline.slice(0, typedText.length + 1));
+          } else {
+            timeoutId = setTimeout(() => setAnimationPhase("typing-subtitle"), pauseTime / 2);
+          }
+          break;
+        case "typing-subtitle":
+          if (subtitleText.length < subtitle.length) {
+            setSubtitleText(subtitle.slice(0, subtitleText.length + 1));
+          } else {
+            timeoutId = setTimeout(() => setAnimationPhase("deleting-subtitle"), pauseTime);
+          }
+          break;
+        case "deleting-subtitle":
+          if (subtitleText.length > 0) {
+            setSubtitleText(subtitleText.slice(0, subtitleText.length - 1));
+          } else {
+            setAnimationPhase("deleting-tagline");
+          }
+          break;
+        case "deleting-tagline":
+          if (typedText.length > 0) {
+            setTypedText(typedText.slice(0, typedText.length - 1));
+          } else {
+            timeoutId = setTimeout(() => setAnimationPhase("typing-tagline"), typingSpeed);
+          }
+          break;
+      }
+    }
+
+    const speed = animationPhase.includes("deleting") ? deletingSpeed : typingSpeed;
+    timeoutId = setTimeout(handleAnimation, speed);
+
+    return () => clearTimeout(timeoutId);
+  }, [typedText, subtitleText, animationPhase, tagline, subtitle]);
 
   // Sample data - in a real app, these would come from API endpoints
   const school = [
@@ -377,12 +403,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-light-blue-400 py-8 px-4 flex items-center">
       {/* Tagline Section */}
-      <div className="w-1/2 pr-8">
-        <p className="text-4xl font-bold text-white mb-2">
+      <div className="w-1/2 pr-8 h-24">
+        <h1 className="text-4xl font-bold text-white mb-4 h-12">
           {typedText}
-          <span className="animate-blink">|</span>
+          {(animationPhase === "typing-tagline" || animationPhase === "deleting-tagline") && <span className="animate-blink text-orange-400">|</span>}
+        </h1>
+        <p className="text-2xl font-semibold text-white h-8">
+          {subtitleText}{(animationPhase === "typing-subtitle" || animationPhase === "deleting-subtitle") && <span className="animate-blink text-orange-400">|</span>}
         </p>
-        <p className="text-2xl text-white">Get personalized four-year academic plans</p>
       </div>
 
       {/* Form Section */}
