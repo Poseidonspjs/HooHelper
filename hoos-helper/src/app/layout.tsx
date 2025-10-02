@@ -25,9 +25,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative overflow-hidden`}
       >
-        {children}
+        {/* Animated Background Blobs */}
+        <div className="absolute inset-0 -z-10">
+          <div className="blob bg-orange-500 opacity-70"></div>
+          <div className="blob bg-blue-900 opacity-50"></div>
+          <div className="blob bg-dark-blue opacity-70"></div>
+          <div className="blob bg-dark-blue opacity-50"></div>
+        </div>
+        <main className="relative z-10">{children}</main>
       </body>
     </html>
   );
