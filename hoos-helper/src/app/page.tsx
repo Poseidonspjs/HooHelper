@@ -201,8 +201,8 @@ export default function Home() {
     "Plan for Study Abroad and Internships",
     "Maximize Your UVA Experience"
   ];
-  const typingSpeed = 150;
-  const deletingSpeed = 100;
+  const typingSpeed = 80;
+  const deletingSpeed = 50;
   const pauseTimeAfterTagline = 1500; // Pause after main tagline is typed
   const pauseTimeAfterSubtitle = 1000; // Pause after subtitle is typed
 
