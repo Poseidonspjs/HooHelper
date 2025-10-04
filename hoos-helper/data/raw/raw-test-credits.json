@@ -1,0 +1,701 @@
+[
+  {
+    "program": "AP",
+    "exam": "Art (Studio-Drawing)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ARTS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ARTS"
+  },
+  {
+    "program": "AP",
+    "exam": "Art (Studio-Drawing)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "ARTS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ARTS"
+  },
+  {
+    "program": "AP",
+    "exam": "Art (Studio-2D Design)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ARTS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ARTS"
+  },
+  {
+    "program": "AP",
+    "exam": "Art (Studio-2D Design)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "ARTS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ARTS"
+  },
+  {
+    "program": "AP",
+    "exam": "Art (Studio-3D Design)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ARTS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ARTS"
+  },
+  {
+    "program": "AP",
+    "exam": "Art (Studio-3D Design)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "ARTS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ARTS"
+  },
+  {
+    "program": "AP",
+    "exam": "Art (History)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ARTH 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ARTH"
+  },
+  {
+    "program": "AP",
+    "exam": "Biology",
+    "min_score": 4,
+    "uva_equivalent": [
+      "BIOL 1000T"
+    ],
+    "credits_awarded": 6,
+    "department": "BIOL"
+  },
+  {
+    "program": "AP",
+    "exam": "Chemistry [No laboratory credit given]",
+    "min_score": 4,
+    "uva_equivalent": [
+      "CHEM 1410"
+    ],
+    "credits_awarded": 6,
+    "department": "CHEM"
+  },
+  {
+    "program": "AP",
+    "exam": "Chemistry [No laboratory credit given]",
+    "min_score": 5,
+    "uva_equivalent": [
+      "CHEM 1410"
+    ],
+    "credits_awarded": 6,
+    "department": "CHEM"
+  },
+  {
+    "program": "AP",
+    "exam": "Chinese Language & Culture",
+    "min_score": 4,
+    "uva_equivalent": [
+      "CHIN 2010"
+    ],
+    "credits_awarded": 4,
+    "department": "CHIN"
+  },
+  {
+    "program": "AP",
+    "exam": "Computer Science A*",
+    "min_score": 4,
+    "uva_equivalent": [
+      "CS 1110"
+    ],
+    "credits_awarded": 3,
+    "department": "CS"
+  },
+  {
+    "program": "AP",
+    "exam": "Computer Science A*",
+    "min_score": 5,
+    "uva_equivalent": [
+      "CS 1110"
+    ],
+    "credits_awarded": 3,
+    "department": "CS"
+  },
+  {
+    "program": "AP",
+    "exam": "Computer Science Principles",
+    "min_score": 4,
+    "uva_equivalent": [
+      "CS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "CS"
+  },
+  {
+    "program": "AP",
+    "exam": "Computer Science Principles",
+    "min_score": 5,
+    "uva_equivalent": [
+      "CS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "CS"
+  },
+  {
+    "program": "AP",
+    "exam": "Economics (Micro)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ECON 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ECON"
+  },
+  {
+    "program": "AP",
+    "exam": "Economics (Macro)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ECON 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ECON"
+  },
+  {
+    "program": "AP",
+    "exam": "English (Language)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ENWR 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ENWR"
+  },
+  {
+    "program": "AP",
+    "exam": "English (Language)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "ENWR 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ENWR"
+  },
+  {
+    "program": "AP",
+    "exam": "English (Literature)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ENGL 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ENGL"
+  },
+  {
+    "program": "AP",
+    "exam": "English (Literature)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "ENGL 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "ENGL"
+  },
+  {
+    "program": "AP",
+    "exam": "Environmental Sciences",
+    "min_score": 4,
+    "uva_equivalent": [
+      "EVSC 1010"
+    ],
+    "credits_awarded": 3,
+    "department": "EVSC"
+  },
+  {
+    "program": "AP",
+    "exam": "Environmental Sciences",
+    "min_score": 5,
+    "uva_equivalent": [
+      "EVSC 1010"
+    ],
+    "credits_awarded": 3,
+    "department": "EVSC"
+  },
+  {
+    "program": "AP",
+    "exam": "French Language & Culture**",
+    "min_score": 3,
+    "uva_equivalent": [
+      "FREN 2020"
+    ],
+    "credits_awarded": 3,
+    "department": "FREN",
+    "notes": "Exemption only (no credit)"
+  },
+  {
+    "program": "AP",
+    "exam": "French Literature**",
+    "min_score": 3,
+    "uva_equivalent": [
+      "FREN 2020"
+    ],
+    "credits_awarded": 3,
+    "department": "FREN",
+    "notes": "Exemption only (no credit)"
+  },
+  {
+    "program": "AP",
+    "exam": "German Language & Culture***",
+    "min_score": 4,
+    "uva_equivalent": [
+      "GERM 2010"
+    ],
+    "credits_awarded": 3,
+    "department": "GERM"
+  },
+  {
+    "program": "AP",
+    "exam": "Government (U.S.)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "PLAP 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "PLAP"
+  },
+  {
+    "program": "AP",
+    "exam": "Government (U.S.)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "PLAP 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "PLAP"
+  },
+  {
+    "program": "AP",
+    "exam": "Government (Comparative)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "PLCP 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "PLCP"
+  },
+  {
+    "program": "AP",
+    "exam": "Government (Comparative)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "PLCP 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "PLCP"
+  },
+  {
+    "program": "AP",
+    "exam": "History (U.S.)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "HIST 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "HIST"
+  },
+  {
+    "program": "AP",
+    "exam": "History (U.S.)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "HIST 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "HIST"
+  },
+  {
+    "program": "AP",
+    "exam": "History (European)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "HIST 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "HIST"
+  },
+  {
+    "program": "AP",
+    "exam": "History (European)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "HIST 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "HIST"
+  },
+  {
+    "program": "AP",
+    "exam": "History (World)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "HIST 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "HIST"
+  },
+  {
+    "program": "AP",
+    "exam": "History (World)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "HIST 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "HIST"
+  },
+  {
+    "program": "AP",
+    "exam": "Human Geography",
+    "min_score": 4,
+    "uva_equivalent": [],
+    "credits_awarded": 0,
+    "department": "",
+    "notes": "No credit"
+  },
+  {
+    "program": "AP",
+    "exam": "Italian Language & Culture",
+    "min_score": 4,
+    "uva_equivalent": [
+      "ITAL 2010"
+    ],
+    "credits_awarded": 6,
+    "department": "ITAL"
+  },
+  {
+    "program": "AP",
+    "exam": "Italian Language & Culture",
+    "min_score": 5,
+    "uva_equivalent": [
+      "ITAL 2010"
+    ],
+    "credits_awarded": 6,
+    "department": "ITAL"
+  },
+  {
+    "program": "AP",
+    "exam": "Japanese Language & Culture",
+    "min_score": 4,
+    "uva_equivalent": [
+      "JAPN 2020",
+      "JAPN 1000T"
+    ],
+    "credits_awarded": 4,
+    "department": "JAPN"
+  },
+  {
+    "program": "AP",
+    "exam": "Japanese Language & Culture",
+    "min_score": 5,
+    "uva_equivalent": [
+      "JAPN 2020",
+      "JAPN 1000T"
+    ],
+    "credits_awarded": 4,
+    "department": "JAPN"
+  },
+  {
+    "program": "AP",
+    "exam": "Latin (Caesar and Vergil)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "LATI 2010",
+      "LATI 3000T"
+    ],
+    "credits_awarded": 3,
+    "department": "LATI"
+  },
+  {
+    "program": "AP",
+    "exam": "Latin (Caesar and Vergil)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "LATI 2010",
+      "LATI 3000T"
+    ],
+    "credits_awarded": 3,
+    "department": "LATI"
+  },
+  {
+    "program": "AP",
+    "exam": "Latin (Vergil)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "LATI 2010",
+      "LATI 3000T"
+    ],
+    "credits_awarded": 3,
+    "department": "LATI"
+  },
+  {
+    "program": "AP",
+    "exam": "Latin (Vergil)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "LATI 2010",
+      "LATI 3000T"
+    ],
+    "credits_awarded": 3,
+    "department": "LATI"
+  },
+  {
+    "program": "AP",
+    "exam": "Math (AB)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "MATH 1310"
+    ],
+    "credits_awarded": 4,
+    "department": "MATH"
+  },
+  {
+    "program": "AP",
+    "exam": "Math (AB)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "MATH 1310"
+    ],
+    "credits_awarded": 4,
+    "department": "MATH"
+  },
+  {
+    "program": "AP",
+    "exam": "Math (BC)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "MATH 1310"
+    ],
+    "credits_awarded": 8,
+    "department": "MATH"
+  },
+  {
+    "program": "AP",
+    "exam": "Math (BC)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "MATH 1310"
+    ],
+    "credits_awarded": 8,
+    "department": "MATH"
+  },
+  {
+    "program": "AP",
+    "exam": "Music (Theory)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "MUSI 2000T"
+    ],
+    "credits_awarded": 3,
+    "department": "MUSI"
+  },
+  {
+    "program": "AP",
+    "exam": "Music (Theory)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "MUSI 2000T"
+    ],
+    "credits_awarded": 3,
+    "department": "MUSI"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics B",
+    "min_score": 4,
+    "uva_equivalent": [
+      "PHYS 2010",
+      "PHYS 2020"
+    ],
+    "credits_awarded": 6,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics B",
+    "min_score": 5,
+    "uva_equivalent": [
+      "PHYS 2010",
+      "PHYS 2020"
+    ],
+    "credits_awarded": 6,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics 1",
+    "min_score": 4,
+    "uva_equivalent": [
+      "PHYS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics 1",
+    "min_score": 5,
+    "uva_equivalent": [
+      "PHYS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics 2",
+    "min_score": 4,
+    "uva_equivalent": [
+      "PHYS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics 2",
+    "min_score": 5,
+    "uva_equivalent": [
+      "PHYS 1000T"
+    ],
+    "credits_awarded": 3,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics C (Mechanics)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "PHYS 1425"
+    ],
+    "credits_awarded": 3,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics C (Mechanics)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "PHYS 1425"
+    ],
+    "credits_awarded": 3,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics C (Electricity & Magnetism)",
+    "min_score": 4,
+    "uva_equivalent": [
+      "PHYS 2415"
+    ],
+    "credits_awarded": 3,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Physics C (Electricity & Magnetism)",
+    "min_score": 5,
+    "uva_equivalent": [
+      "PHYS 2415"
+    ],
+    "credits_awarded": 3,
+    "department": "PHYS"
+  },
+  {
+    "program": "AP",
+    "exam": "Psychology",
+    "min_score": 3,
+    "uva_equivalent": [
+      "PSYC 1010"
+    ],
+    "credits_awarded": 3,
+    "department": "PSYC"
+  },
+  {
+    "program": "AP",
+    "exam": "Psychology",
+    "min_score": 4,
+    "uva_equivalent": [
+      "PSYC 1010"
+    ],
+    "credits_awarded": 3,
+    "department": "PSYC"
+  },
+  {
+    "program": "AP",
+    "exam": "Psychology",
+    "min_score": 5,
+    "uva_equivalent": [
+      "PSYC 1010"
+    ],
+    "credits_awarded": 3,
+    "department": "PSYC"
+  },
+  {
+    "program": "AP",
+    "exam": "Spanish Language & Culture*****",
+    "min_score": 4,
+    "uva_equivalent": [
+      "SPAN 2010"
+    ],
+    "credits_awarded": 6,
+    "department": "SPAN"
+  },
+  {
+    "program": "AP",
+    "exam": "Spanish Language & Culture*****",
+    "min_score": 5,
+    "uva_equivalent": [
+      "SPAN 2010"
+    ],
+    "credits_awarded": 6,
+    "department": "SPAN"
+  },
+  {
+    "program": "AP",
+    "exam": "Spanish Literature & Culture*****",
+    "min_score": 4,
+    "uva_equivalent": [
+      "SPAN 2010"
+    ],
+    "credits_awarded": 6,
+    "department": "SPAN"
+  },
+  {
+    "program": "AP",
+    "exam": "Spanish Literature & Culture*****",
+    "min_score": 5,
+    "uva_equivalent": [
+      "SPAN 2010"
+    ],
+    "credits_awarded": 6,
+    "department": "SPAN"
+  },
+  {
+    "program": "AP",
+    "exam": "Statistics",
+    "min_score": 4,
+    "uva_equivalent": [
+      "STAT 1120"
+    ],
+    "credits_awarded": 3,
+    "department": "STAT"
+  }
+]

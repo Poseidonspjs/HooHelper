@@ -9,7 +9,8 @@
     "lint": "eslint",
     "scrape:majors": "npx tsx src/app/scrapers/majors_scraper.tsx",
     "scrape:courses": "npx tsx src/app/scrapers/courses_scrapers.tsx",
-    "scrape:all": "npm run scrape:majors && npm run scrape:courses"
+    "scrape:credits": "npx tsx src/app/scrapers/credits_scraper.tsx",
+    "scrape:all": "npm run scrape:majors && npm run scrape:courses && npm run scrape:credits"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

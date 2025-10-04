@@ -44,6 +44,21 @@ export interface MajorsData {
   majors: Major[];
 }
 
+export interface TestCredit {
+  program: string;           // e.g., "AP", "IB", "Cambridge"
+  exam: string;              // e.g., "Calculus AB", "Biology"
+  min_score: number;         // Minimum score required (e.g., 4, 5)
+  uva_equivalent: string[];  // UVA course(s) awarded (e.g., ["MATH 1310"])
+  credits_awarded: number;   // Total credit hours awarded
+  department: string;        // Department granting credit (e.g., "Mathematics")
+  notes?: string;            // Additional notes or exemption info
+}
+
+export interface TestCreditsData {
+  lastUpdated: string;  // ISO timestamp
+  credits: TestCredit[];
+}
+
 // Raw scraping interfaces (before normalization)
 export interface RawCourse {
   id?: string;
@@ -67,6 +82,16 @@ export interface RawMajor {
   focusAreas?: string | string[];
   sourceUrl?: string;
   description?: string;
+}
+
+export interface RawTestCredit {
+  program?: string;
+  exam?: string;
+  min_score?: string | number;
+  uva_equivalent?: string | string[];
+  credits_awarded?: string | number;
+  department?: string;
+  notes?: string;
 }
 
 // Scraper configuration and utility types

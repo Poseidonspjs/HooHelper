@@ -1,5 +1,5 @@
 // Data normalization utilities for UVA course and major data
-import { Course, Major, RawCourse, RawMajor, NormalizationConfig } from '../types';
+import { Course, Major, TestCredit, RawCourse, RawMajor, RawTestCredit, NormalizationConfig } from '../types';
 import {
   cleanText,
   stripHtml,
@@ -362,6 +362,193 @@ export function deduplicateMajors(majors: Major[]): Major[] {
     const key = `${major.major}-${major.degree}-${major.school}`;
     if (seen.has(key)) {
       console.warn(`Duplicate major found: ${key}`);
+      return false;
+    }
+    seen.add(key);
+    return true;
+  });
+}
+
+// Normalize raw test credit data to standard TestCredit format
+export function normalizeTestCredit(
+  rawTestCredit: RawTestCredit,
+  config: NormalizationConfig = defaultNormalizationConfig
+): TestCredit | null {
+  try {
+    // Extract and clean basic fields
+    let program = rawTestCredit.program || '';
+    let exam = rawTestCredit.exam || '';
+    let notes = rawTestCredit.notes || '';
+
+    if (config.trimWhitespace) {
+      program = cleanText(program);
+      exam = cleanText(exam);
+      notes = cleanText(notes);
+    }
+
+    if (config.removeHtmlTags) {
+      program = stripHtml(program);
+      exam = stripHtml(exam);
+      notes = stripHtml(notes);
+    }
+
+    // Validate required fields
+    if (!program || !exam) {
+      console.warn('Skipping test credit with missing required fields:', { program, exam });
+      return null;
+    }
+
+    // Parse minimum score
+    let min_score = 0;
+    if (rawTestCredit.min_score) {
+      if (typeof rawTestCredit.min_score === 'number') {
+        min_score = rawTestCredit.min_score;
+      } else {
+        const scoreMatch = rawTestCredit.min_score.toString().match(/(\d+)/);
+        min_score = scoreMatch ? parseInt(scoreMatch[1]) : 0;
+      }
+    }
+
+    // Parse credits awarded
+    let credits_awarded = 0;
+    if (rawTestCredit.credits_awarded) {
+      if (typeof rawTestCredit.credits_awarded === 'number') {
+        credits_awarded = rawTestCredit.credits_awarded;
+      } else {
+        const creditsMatch = rawTestCredit.credits_awarded.toString().match(/(\d+)/);
+        credits_awarded = creditsMatch ? parseInt(creditsMatch[1]) : 0;
+      }
+    }
+
+    // Parse UVA equivalent courses
+    let uva_equivalent: string[] = [];
+    if (rawTestCredit.uva_equivalent) {
+      if (Array.isArray(rawTestCredit.uva_equivalent)) {
+        uva_equivalent = rawTestCredit.uva_equivalent
+          .map(c => config.standardizeCourseIds ? standardizeCourseId(c) : c)
+          .filter(c => c.trim() !== '');
+      } else {
+        // Extract course IDs from text
+        const coursePattern = /([A-Z]{2,4})\s*[\-\s]*(\d{3,4}[A-Z]?)/gi;
+        const matches = rawTestCredit.uva_equivalent.toString().match(coursePattern);
+        if (matches) {
+          uva_equivalent = matches.map(c => config.standardizeCourseIds ? standardizeCourseId(c) : c);
+        }
+      }
+    }
+
+    // Extract department from first UVA course
+    let department = rawTestCredit.department || '';
+    if (!department && uva_equivalent.length > 0) {
+      const match = uva_equivalent[0].match(/^([A-Z]+)/);
+      department = match ? match[1] : '';
+    }
+
+    // If still no department, try to infer from exam name
+    if (!department) {
+      department = inferDepartmentFromExam(exam);
+    }
+
+    return {
+      program,
+      exam,
+      min_score,
+      uva_equivalent,
+      credits_awarded,
+      department: department.toUpperCase(),
+      notes: notes || undefined
+    };
+
+  } catch (error) {
+    console.error('Error normalizing test credit:', error, rawTestCredit);
+    return null;
+  }
+}
+
+// Infer department from exam name
+function inferDepartmentFromExam(exam: string): string {
+  const examLower = exam.toLowerCase();
+
+  if (examLower.includes('calculus') || examLower.includes('mathematics') || examLower.includes('math')) {
+    return 'MATH';
+  }
+  if (examLower.includes('biology') || examLower.includes('bio')) {
+    return 'BIOL';
+  }
+  if (examLower.includes('chemistry') || examLower.includes('chem')) {
+    return 'CHEM';
+  }
+  if (examLower.includes('physics')) {
+    return 'PHYS';
+  }
+  if (examLower.includes('computer science') || examLower.includes('computing')) {
+    return 'CS';
+  }
+  if (examLower.includes('english') || examLower.includes('literature')) {
+    return 'ENGL';
+  }
+  if (examLower.includes('history')) {
+    return 'HIST';
+  }
+  if (examLower.includes('economics') || examLower.includes('econ')) {
+    return 'ECON';
+  }
+  if (examLower.includes('psychology') || examLower.includes('psych')) {
+    return 'PSYC';
+  }
+  if (examLower.includes('spanish')) {
+    return 'SPAN';
+  }
+  if (examLower.includes('french')) {
+    return 'FREN';
+  }
+  if (examLower.includes('german')) {
+    return 'GERM';
+  }
+  if (examLower.includes('statistics') || examLower.includes('stat')) {
+    return 'STAT';
+  }
+  if (examLower.includes('art')) {
+    return 'ART';
+  }
+  if (examLower.includes('music')) {
+    return 'MUS';
+  }
+  if (examLower.includes('government') || examLower.includes('politics')) {
+    return 'POLI';
+  }
+
+  return 'GENERAL'; // Default fallback
+}
+
+// Normalize array of test credits
+export function normalizeTestCredits(
+  rawTestCredits: RawTestCredit[],
+  config: NormalizationConfig = defaultNormalizationConfig
+): TestCredit[] {
+  const normalizedTestCredits: TestCredit[] = [];
+
+  rawTestCredits.forEach((rawTestCredit, index) => {
+    try {
+      const normalized = normalizeTestCredit(rawTestCredit, config);
+      if (normalized) {
+        normalizedTestCredits.push(normalized);
+      }
+    } catch (error) {
+      console.error(`Error normalizing test credit at index ${index}:`, error);
+    }
+  });
+
+  return normalizedTestCredits;
+}
+
+// Remove duplicates from normalized test credits
+export function deduplicateTestCredits(testCredits: TestCredit[]): TestCredit[] {
+  const seen = new Set<string>();
+  return testCredits.filter(testCredit => {
+    const key = `${testCredit.program}-${testCredit.exam}-${testCredit.min_score}`;
+    if (seen.has(key)) {
+      console.warn(`Duplicate test credit found: ${key}`);
       return false;
     }
     seen.add(key);

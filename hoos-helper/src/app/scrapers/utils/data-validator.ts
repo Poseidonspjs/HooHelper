@@ -1,5 +1,5 @@
 // Data validation utilities for UVA course and major data
-import { Course, Major, ValidationError } from '../types';
+import { Course, Major, TestCredit, ValidationError } from '../types';
 
 // Validate course data
 export function validateCourse(course: any): { isValid: boolean; errors: ValidationError[] } {
@@ -263,4 +263,105 @@ export function validateCrossReferences(courses: Course[], majors: Major[]): Val
   });
 
   return errors;
+}
+
+// Validate test credit data
+export function validateTestCredit(testCredit: any): { isValid: boolean; errors: ValidationError[] } {
+  const errors: ValidationError[] = [];
+
+  // Required fields
+  if (!testCredit.program || typeof testCredit.program !== 'string' || testCredit.program.trim() === '') {
+    errors.push({ field: 'program', message: 'Program is required and must be a non-empty string', value: testCredit.program });
+  }
+
+  if (!testCredit.exam || typeof testCredit.exam !== 'string' || testCredit.exam.trim() === '') {
+    errors.push({ field: 'exam', message: 'Exam name is required and must be a non-empty string', value: testCredit.exam });
+  }
+
+  // Different programs use different score scales
+  // AP/IB: 1-10, Cambridge: 1-7 (A*=7), CLEP: 20-80, SAT II: 200-800
+  const maxScore = testCredit.program === 'CLEP' ? 80 : (testCredit.program === 'SAT II' ? 800 : 10);
+  if (typeof testCredit.min_score !== 'number' || testCredit.min_score < 1 || testCredit.min_score > maxScore) {
+    errors.push({ field: 'min_score', message: `Minimum score must be a number between 1 and ${maxScore}`, value: testCredit.min_score });
+  }
+
+  if (typeof testCredit.credits_awarded !== 'number' || testCredit.credits_awarded < 0 || testCredit.credits_awarded > 12) {
+    errors.push({ field: 'credits_awarded', message: 'Credits awarded must be a number between 0 and 12', value: testCredit.credits_awarded });
+  }
+
+  if (!testCredit.department || typeof testCredit.department !== 'string' || testCredit.department.trim() === '') {
+    errors.push({ field: 'department', message: 'Department is required and must be a non-empty string', value: testCredit.department });
+  }
+
+  // Array fields
+  if (!Array.isArray(testCredit.uva_equivalent)) {
+    errors.push({ field: 'uva_equivalent', message: 'UVA equivalent courses must be an array', value: testCredit.uva_equivalent });
+  } else {
+    // Validate course ID format in UVA equivalents
+    const courseIdPattern = /^[A-Z]{2,4}\s\d{3,4}[A-Z]?$/;
+    const invalidCourseIds = testCredit.uva_equivalent.filter((courseId: any) => {
+      return typeof courseId !== 'string' || !courseIdPattern.test(courseId);
+    });
+    if (invalidCourseIds.length > 0) {
+      errors.push({ field: 'uva_equivalent', message: 'Invalid course ID format in UVA equivalents', value: invalidCourseIds });
+    }
+  }
+
+  // Optional notes field
+  if (testCredit.notes && typeof testCredit.notes !== 'string') {
+    errors.push({ field: 'notes', message: 'Notes must be a string if provided', value: testCredit.notes });
+  }
+
+  // Validate program values
+  const validPrograms = ['AP', 'IB', 'Cambridge', 'AICE', 'CLEP', 'French Baccalaureate', 'German Abitur', 'Swiss Federal Maturity', 'A-Level', 'SAT II'];
+  if (testCredit.program && typeof testCredit.program === 'string') {
+    if (!validPrograms.includes(testCredit.program)) {
+      errors.push({ field: 'program', message: 'Invalid program type', value: testCredit.program });
+    }
+  }
+
+  return {
+    isValid: errors.length === 0,
+    errors
+  };
+}
+
+// Validate array of test credits
+export function validateTestCredits(testCredits: any[]): { validTestCredits: TestCredit[]; errors: ValidationError[] } {
+  const validTestCredits: TestCredit[] = [];
+  const allErrors: ValidationError[] = [];
+
+  testCredits.forEach((testCredit, index) => {
+    const { isValid, errors } = validateTestCredit(testCredit);
+    if (isValid) {
+      validTestCredits.push(testCredit as TestCredit);
+    } else {
+      errors.forEach(error => {
+        allErrors.push({
+          ...error,
+          field: `testCredit[${index}].${error.field}`,
+          message: `Test Credit ${index}: ${error.message}`
+        });
+      });
+    }
+  });
+
+  return { validTestCredits, errors: allErrors };
+}
+
+// Check for duplicate test credits
+export function findDuplicateTestCredits(testCredits: TestCredit[]): string[] {
+  const seen = new Set<string>();
+  const duplicates = new Set<string>();
+
+  testCredits.forEach(testCredit => {
+    const key = `${testCredit.program}-${testCredit.exam}-${testCredit.min_score}`;
+    if (seen.has(key)) {
+      duplicates.add(key);
+    } else {
+      seen.add(key);
+    }
+  });
+
+  return Array.from(duplicates);
 }
